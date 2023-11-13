@@ -69,7 +69,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                         </ul>
 
                         <div>
-                            <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                        <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                             <a href="<?php echo $baseUrl; ?>views/Rankings/Tetris/" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -83,7 +87,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                         </ul>
 
                     <div>
-                        <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue"  class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                         <a href="<?php echo $baseUrl; ?>views/Rankings/RedVsBlue" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                     </div>
                     </div>
@@ -98,7 +106,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                         </ul>
                        
                         <div>
-                            <a href="<?php echo $baseUrl; ?>views/Games/Creeper/Creeper.php"  class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                        <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                             <a href="<?php echo $baseUrl; ?>views/Rankings/Creeper" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -111,7 +123,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
                         <div>
-                            <a href="<?php echo $baseUrl; ?>views/Games/DinoRun/" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                        <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                             <a href="<?php echo $baseUrl; ?>views/Rankings/DinoRun/" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -127,7 +143,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
 
                         </div>
                         <div>
-                        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                        <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                         <a href="<?php echo $baseUrl; ?>views/Rankings/GlobyAdventure/" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -159,7 +179,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                                     <img src="./assets/media/videos/TETRIS.jpg" alt="">
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
-                                                        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                                                    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,7 +204,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                                     <img src="./assets/media/videos/red vs blue.jpg" alt="">
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
-                                                        <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                                                    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -201,7 +229,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                                     <img src="./assets/media/videos/globy villano3.png" alt="">
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
-                                                        <a href="<?php echo $baseUrl; ?>views/Games/Creeper/" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                                                    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,7 +254,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                                     <img src="./assets/media/videos/Dinooorun.PNG" alt="">
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
-                                                        <a href="<?php echo $baseUrl; ?>views/Games/DinoRun" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                                                    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -243,7 +279,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                                     <img src="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/portada.png" alt="">
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
-                                                        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                                                    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>

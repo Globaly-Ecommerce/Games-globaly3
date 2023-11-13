@@ -90,9 +90,12 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                             clásico atemporal en el mundo de los videojuegos. Tetris ha trascendido las
                                             generaciones y plataformas, convirtiéndose en un ícono cultural.</p>
 
-                                        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled"><i
-                                                class="far fa-play"></i>
-                                            Jugar</a>
+    <!-- Botón "Jugar" solo visible para usuarios autenticados -->
+    <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                     </div>
                                 </div>
                             </div>

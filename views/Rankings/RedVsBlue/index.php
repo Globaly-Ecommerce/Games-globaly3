@@ -73,7 +73,11 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                         <div class="content">
                                             <h2 class="color-white mb-8">Red vs blue</h2>
                                             <p class="color-gray mb-32">Prepárate para la intensa batalla de 'Red vs. Blue', donde un cuadrado azul debe esquivar hábilmente cuadrados rojos en constante avance. Avanzar es la clave para ganar puntos, ¡así que mantén la velocidad y acumula la mayor puntuación posible en este emocionante desafío de supervivencia!</p>
-                                            <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue/" class="cus-btn filled"><i class="far fa-play"></i> Jugar</a>
+                                            <?php if (isset($_SESSION['nombre_usuario'])): ?>
+        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+            <i class="far fa-play"></i> Jugar
+        </a>
+    <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
