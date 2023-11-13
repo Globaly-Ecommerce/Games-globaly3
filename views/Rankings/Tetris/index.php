@@ -10,7 +10,7 @@ $comentarios = $stmt->fetchAll();
 $stmt = $pdo->query("SELECT u.nombre_usuario, MAX(score) AS highscore FROM scores AS s JOIN usuarios AS u ON u.usuarios_id = s.usuarios_id WHERE s.juego_id = $juego_id GROUP BY s.usuarios_id ORDER BY highscore DESC;");
 $ranking = $stmt->fetchAll();
 
-$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
+$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
 ?>
 

@@ -23,7 +23,7 @@ try {
     // Contenido
     $mail->isHTML(true); // Establecer el formato de correo electrónico a HTML
     // Crear el enlace de restablecimiento de contraseña
-    $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";    // Asegúrate de que esta es la URL base correcta de tu proyecto local
+    $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";    // Asegúrate de que esta es la URL base correcta de tu proyecto local
    $urlDeReset = $baseUrl . "reset_password.php?token=" . $token;
     $mail->Subject = 'Test';
     $mail->Body = 'Por favor, haz clic en el siguiente enlace para restablecer tu contraseña: <a href="' . $urlDeReset . '">Restablecer Contraseña</a>';

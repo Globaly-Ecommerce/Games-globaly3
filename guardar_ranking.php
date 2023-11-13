@@ -1,10 +1,10 @@
 <?php
 // Conexión a la base de datos
 $host = 'localhost';
-$db   = 'JuegosScoresDB';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+$db   = 'nuevoglobaly_juegosscoresdb';
+$user = 'nuevoglobaly_admin'; 
+$pass = 'e?PVnq~Gu$s('; 
+$charset = 'utf8';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [

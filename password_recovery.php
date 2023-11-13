@@ -8,7 +8,7 @@ $host = 'your_production_host';
 $db   = 'your_production_db';
 $user = 'your_production_user';
 $pass = 'your_production_password';
-$charset = 'utf8mb4';
+$charset = 'utf8';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
