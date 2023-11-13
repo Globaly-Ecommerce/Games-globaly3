@@ -1,0 +1,105 @@
+/*---------------------------------------------"
+Template Name: Visuals
+Template URL: https://techpedia.co.uk/template/visuals
+Description: Visual Entertainment Streaming And Blog
+Version: 1.0.0
+
+===============================================   
+STYLE SHEET INDEXING
+|
+|___ Fonts
+|___ Variables
+|___ Reset Styles
+|___ Responsive
+|___ Spacing
+|___ Helper Classes
+|___ Buttons
+|___ Headings
+|___ Layout Styles
+|___ END STYLE SHEET INDEXING
+
+--------------------------------------------*/
+
+/*-------------------------
+    Fonts
+-------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/*-------------------------
+    Variables
+-------------------------*/
+$font-primary: 'Inter', sans-serif;
+$font-sec: 'Open Sans', sans-serif;
+$font-awesome: "Font Awesome 5 Pro";
+$transition: all 0.5s ease-in-out;
+$accent-1: #58DDA3;
+$accent-2: #FF4242;
+$black: #1B1B1B;
+$black-1: #0D0D0D;
+$white: #F8F8FF;
+$gray-1: #C6CBD2;
+$gray-2: #9EA2A8;
+$gray-3: #7A7F85;
+$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+/*-------------------------
+    Reset Styles
+-------------------------*/
+@import "basic/basic";
+
+
+/*-------------------------
+Helpers
+-------------------------*/
+@import "helpers/classes";
+
+@import "helpers/mixin";
+
+@import "helpers/spacing";
+
+
+/*-------------------------
+Elements
+-------------------------*/
+@import "elements/preloader";
+
+@import "elements/buttons";
+
+@import "elements/filters";
+
+@import "elements/form";
+
+@import "elements/heading";
+
+@import "elements/countdown";
+
+@import "elements/search-input";
+
+
+/*-------------------------
+  layouts
+-------------------------*/
+
+@import "layout/header";
+
+@import "layout/footer";
+
+@import "layout/hero-banner";
+
+@import "layout/card.scss";
+
+@import "layout/coming-soon-banner";
+
+@import "layout/blog";
+
+@import "layout/blog-detail";
+
+@import "layout/sidebar";
+
+@import "layout/detail";
+
+@import "layout/login";
+
+@import "layout/signup";
+
+@import "layout/pagination";

@@ -1,0 +1,69 @@
+
+.pagination-wrape {
+    margin: 30px 0 0;
+    text-align: center;
+    .pagination {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 16px;
+        li {
+            a{
+                border-radius: 10px;
+                width: 48px;
+                height: 48px;
+                font-weight: 700;
+                font-size: 21px;
+                line-height: 130%;
+                text-align: center;
+                color: $white;
+                padding: 8px 0;
+                display: block;
+                border: 2px solid $white;
+                background: transparent;
+                border-radius: 15px;
+                &.arrow{
+                    font-size: 36px;
+                    padding: 0;
+                }
+                &.current {
+                    background-color: $white;
+                    color: $black;
+                }
+                &:hover {
+                    background-color: $white;
+                    color: $black;
+                }
+                &:focus{
+                    box-shadow: none;
+                }
+           }
+        }
+     }
+  }
+  .page-item{
+    &:first-child{
+        .page-link {
+            border: none;
+            font-size: 32px;
+            background: transparent;
+            border-radius: 0;
+            &:hover {
+                background: transparent;
+                color: $white;
+            }
+        }
+    }
+    &:last-child{
+        .page-link {
+            border: none;
+            font-size: 32px;
+            background: transparent;
+            border-radius: 0;
+            &:hover {
+                background: transparent;
+                color: $white;
+            }
+        }
+    }
+  }

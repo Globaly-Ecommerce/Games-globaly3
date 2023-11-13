@@ -1,0 +1,40 @@
+.blog-detail{
+    position: relative;
+    .tags{
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        li{
+            color: $gray-1;
+        }
+    }
+    .about-publish{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .author{
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+    }
+    .content-block{
+        p{
+            color: $gray-1;
+        }
+        img{
+            border-radius: 25px;
+        }
+        .quote{
+            max-width: 950px;
+            margin: 0 auto;
+        }
+    }
+    &.st-2{
+        .about-publish{
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+        }
+    }
+}

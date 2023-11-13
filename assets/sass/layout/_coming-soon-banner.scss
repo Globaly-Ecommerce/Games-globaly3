@@ -1,0 +1,200 @@
+.coming-soon-block{
+    background: url(../media/bg/bg-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    .top-title{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $accent-1;
+        border-radius: 0px 0px 15px 0px;
+        padding: 8px 64px;
+        color: $black;
+    }
+    .card-img{
+        height: 100%;
+        img{
+            height: 100%;
+            border-radius: 0px;
+        }
+    }
+    .shape-container{
+        height: 100%;
+        width: 100%;
+        // -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        // background-image: url('../media/comming-soon/movie-card-1.png');
+        // background-repeat: no-repeat;
+        // background-size: cover;     
+        // -webkit-clip-path: url('../media/path.svg');
+        // clip-path: url('../media/path.svg');
+        clip-path: polygon(39.75% 0%, 91.9% 0%, 63.86% 100%, 7.5% 100%);
+        background-image: url('../media/comming-soon/movie-card-2.png');
+        background-repeat: no-repeat;
+        background-size: cover;    
+    }
+    &.st-1{
+        background: url(../media/bg/bg-2.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        .content{
+            padding: 80px 0 0;
+            @include media-query(1599px) {
+                padding: 100px 0;
+            }
+            @include media-query(1199px) {
+                padding: 100px 0;
+            }
+            @include media-query(992px) {
+                padding: 100px 0 50px;
+            }
+        }
+        .card-img{
+            img{
+                height: auto;
+                @include media-query(1400px) {
+                    margin: 48px 0;
+                }
+                @include media-query(767px) {
+                    margin: 24px 0;
+                }
+            }
+        }
+    }
+    &.st-2{
+        background: url(../media/bg/bg-1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        .content{
+            padding: 135px 0;
+            @include media-query(1599px) {
+                padding: 100px 0;
+            }
+            @include media-query(1199px) {
+                padding: 100px 0;
+            }
+            @include media-query(992px) {
+                padding: 100px 0 0px;
+            }
+            p{
+                br{
+                    @include media-query(1199px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .card-img{
+            img{
+                margin: 48px 0;
+                height: auto;
+                border-radius: 25px;
+                @include media-query(767px) {
+                    margin: 24px 0;
+                }
+            }
+        }
+    }
+    &.st-3{
+        background: url(../media/bg/bg-4.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        span{
+            border-radius: 15px 0 0 15px;
+        }
+        .content{
+            padding: 80px 0 0;
+            @include media-query(1599px) {
+                padding: 100px 0;
+            }
+            @include media-query(1199px) {
+                padding: 70px 0;
+            }
+            @include media-query(992px) {
+                padding: 100px 0 50px;
+            }
+        }
+        .title{
+            padding: 97px 0 0;
+            margin-left: -155px;
+            font-weight: 700;
+            font-size: 95px;
+        }
+        .countdown  {
+            margin-bottom: 42px;
+            li{
+                margin-right: 24px;
+            }
+        }
+    }
+}
+.coming-soon-page{
+    align-content: center;
+    height: 100vh;
+    display: grid;
+    .logo{
+        @include media-query(575px) {
+            max-width: 200px;
+        }      
+    }
+}
+.modal{
+    padding: 0 !important;
+    --bs-modal-padding: 0rem !important;
+    --bs-modal-margin: 0rem !important;
+    .modal-dialog{
+        max-width: 70%;
+        @include media-query(768px) {
+            max-width: 80%;
+        }
+        @include media-query(575px) {
+            max-width: 100%;
+        }
+        .modal-content{
+            background-color: #000;
+            margin-top: 48px;
+            border-radius: 24px;
+            .top_bar{
+                background-color: $black;
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 0;
+                border-radius: 16px 16px 0 0;
+                .modal-title{
+                    padding-left: 24px;
+                    color: $white;
+                }
+            }
+            .close{
+                border: 0;
+                background: transparent;
+                color: $accent-1;
+                padding: 10px 20px 0px 10px;
+                span{
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    i{
+                        font-size: 24px;
+                    }
+                    b{
+                        font-size: 24px;
+                    }
+                }
+            }
+            .modal-body{
+                iframe{
+                    border: 0;
+                    border: none;
+                    height: 700px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+  }

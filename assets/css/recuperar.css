@@ -1,0 +1,114 @@
+/* recuperar.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+form {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Optimizado para móviles */
+  margin: auto;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+label, input[type=email], input[type=password], input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+input[type=email], input[type=password] {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  border-radius: 15px;
+  background: #231F20;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+input[type=submit]:hover {
+  background: #254E8c;
+}
+
+/* Errores y mensajes de éxito */
+.error, .success {
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.error {
+  background-color: #D8000C;
+}
+
+.success {
+  background-color: #4F8A10;
+}
+
+/* Media queries para dispositivos más grandes */
+@media (min-width: 768px) {
+  form {
+    padding: 20px;
+    width: 75%; /* Ajuste para tablets */
+  }
+}
+
+@media (min-width: 992px) {
+  form {
+    width: 60%; /* Ajuste para desktops pequeños */
+  }
+}
+
+@media (min-width: 1200px) {
+  form {
+    width: 30%; /* Ajuste para desktops grandes */
+  }
+}
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 15px;
+  
+}
+
+.button:hover {background-color: #254E8c}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}

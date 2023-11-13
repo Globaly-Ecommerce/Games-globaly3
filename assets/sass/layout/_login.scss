@@ -1,0 +1,54 @@
+.login {
+    background: url(../media/bg/login.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 917px;
+    @include media-query(575px) {
+        height: 700px;
+    }
+    .login-block {
+        width: 400px;
+        margin: 0 auto;
+        padding: 274px 0px;
+        @include media-query(575px) {
+            padding: 150px 0;
+        }
+        @include media-query(450px) {
+            width: 100%;
+        }
+        .login-content{
+            button{
+                width: 100%;
+                display: flex;
+                padding: 16px;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+                border: none;
+                border-radius: 15px;
+                font-size: 21px;
+                font-weight: 700;
+                line-height: 130%;
+                @include media-query(575px) {
+                    font-size: 18px;
+                    padding: 12px;
+                }
+                &.google{
+                    background: #FF4242;
+                    color: $white;
+                }
+                &.facebook{
+                    background: #1877F2;
+                    color: $white;
+                }
+                &.mail{
+                    background: $white;
+                }
+            }
+        }
+        #backtologin{
+            cursor: pointer;
+        }
+    }      
+}

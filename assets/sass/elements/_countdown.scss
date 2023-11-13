@@ -1,0 +1,31 @@
+.countdown{
+    padding: 0;
+    // margin-bottom: 48px;
+    li{
+        font-weight: 700;
+        font-size: 47px;
+        line-height: 125%;
+        letter-spacing: -0.01em;
+        color: $white;
+        margin-right: 32px;
+        display: inline-flex;
+        align-items: center;
+        @include media-query(1600px) {
+            margin-right: 24px;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+        span{
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: $white;
+            transform: rotate(-90deg);
+            padding: 0;
+            background: none;
+            border-radius: 0;
+            margin-left: 0px;
+        }
+    }
+}

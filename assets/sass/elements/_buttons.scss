@@ -1,0 +1,91 @@
+.back-to-top {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    line-height: 50px;
+    font-size: 100px;
+    padding: 20px 0;
+    background: $accent-1;
+    color: $white;
+    text-align: center;
+    opacity: 0;
+    text-decoration: none;
+    border-radius: 50%;
+    -webkit-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    transform: scale(0.3);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    &.show{
+        opacity: 1;
+    }
+    &:hover{
+        bottom: 5px;
+        transition: $transition;
+    }
+    @include media-query(490px) { 
+        right: -20px;
+        bottom: -20px;
+    }
+    i{
+        color: $white;
+    }
+}
+.cus-btn{
+    padding: 16px 32px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 130%;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    transition: $transition;
+    @include media-query(992px) {
+        padding: 12px 24px;
+    }
+    @include media-query(575px) {
+        padding: 8px 16px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        border-radius: 10px;
+    }
+    i{
+        font-size: 24px;
+        @include media-query(575px) {
+            font-size: 16px;
+        }
+    }
+    img{
+        width: 24px !important;
+    }
+    &.filled{
+        background: $white;
+        color: $black;
+        &:hover{
+            color: $black;
+            box-shadow: 0px 0px 30px 5px rgba(88, 221, 163, 0.8);
+        }
+    }
+    &.bordered{
+        background: transparent;
+        color: $white;
+        border: 1px solid $white;
+        i{
+            color: $white;
+        }
+        &:hover{
+            color: $white;
+            background: rgba(248, 248, 255, 0.3);
+        }
+    }
+    &.ms-16{
+        margin-left: 16px;
+    }
+}

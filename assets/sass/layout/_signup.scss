@@ -1,0 +1,24 @@
+.signup {
+    background: url(../media/bg/signup.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 917px;
+    .signup-block {
+        width: 400px;
+        margin: 0 auto;
+        padding: 197px 0px;
+        @include media-query(450px) {
+            width: 100%;
+        }
+        button{
+            border: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+.guide{
+    display: flex;
+}
