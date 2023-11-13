@@ -74,7 +74,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                             <h2 class="color-white mb-8">Red vs blue</h2>
                                             <p class="color-gray mb-32">Prepárate para la intensa batalla de 'Red vs. Blue', donde un cuadrado azul debe esquivar hábilmente cuadrados rojos en constante avance. Avanzar es la clave para ganar puntos, ¡así que mantén la velocidad y acumula la mayor puntuación posible en este emocionante desafío de supervivencia!</p>
                                             <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+        <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue/" class="cus-btn filled">
             <i class="far fa-play"></i> Jugar
         </a>
     <?php endif; ?>
@@ -207,7 +207,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     success: function(response) {
                                         // Maneja la respuesta del servidor si es necesario
                                         // Por ejemplo, puedes mostrar el comentario recién enviado en la sección de comentarios existente
-                                        alert(response); // Esto es solo un ejemplo, puedes personalizarlo
+                                      // Esto es solo un ejemplo, puedes personalizarlo
                                     }
                                 });
                             });

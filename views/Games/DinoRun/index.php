@@ -3,6 +3,7 @@ session_start();
 include '../../../DAL/conn.php'; // Asegúrate de que la ruta sea correcta
 
 $stmt = $pdo->prepare("SELECT score AS highscore FROM scores WHERE usuarios_id = ? AND juego_id = 4;");
+$stmt->execute([$_SESSION['usuario_id']]); // Reemplaza $_SESSION['usuario_id'] con la variable correcta que almacena el ID del usuario.
 
 $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -29,8 +30,10 @@ $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
     <div class="game-over">GAME OVER</div>
-</head>
+</body>
 <script src="juego.js"></script>
+</html>
+
 
     
 
