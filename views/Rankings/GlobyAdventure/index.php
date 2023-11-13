@@ -88,7 +88,7 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                         <p class="color-gray mb-32">En "Globy Adventure", te adentras en el vasto espacio exterior, guiando a Globy, a través de un peligroso campo de columnas de fuego A medida que viajas, el desafío aumenta, las columnas se vuelven más frecuentes y la velocidad del juego se acelera.</p>
 
                                         <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
             <i class="far fa-play"></i> Jugar
         </a>
     <?php endif; ?>

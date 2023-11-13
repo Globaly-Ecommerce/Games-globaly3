@@ -91,7 +91,7 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                             esquivando diversos obstaculos para así poder conseguir la mejor puntuación
                                             para así lograr ser la puntuacion mas alta.</p>
                                             <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+        <a href="<?php echo $baseUrl; ?>views/Games/DinoRun/" class="cus-btn filled">
             <i class="far fa-play"></i> Jugar
         </a>
     <?php endif; ?>

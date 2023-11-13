@@ -77,7 +77,7 @@ $baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
                                             <p class="color-gray mb-32">Es un emocionante juego de acción donde te enfrentarás a una horda interminable de creepers que caen desde lo alto de la pantalla. Equipado con una poderosa lanza, tu misión es eliminar a tantos creepers como puedas antes de que lleguen al suelo. Pon a prueba tus reflejos y habilidades mientras luchas contra la avalancha de enemigos. Cuantos más creepers elimines, más puntos ganarás, ¡así que prepárate para una batalla intensa y desafíante por la supervivencia</p>
                                             
                                             <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+        <a href="<?php echo $baseUrl; ?>views/Games/Creeper/" class="cus-btn filled">
             <i class="far fa-play"></i> Jugar
         </a>
     <?php endif; ?>
