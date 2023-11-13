@@ -1,10 +1,6 @@
 <?php
 // Conexión a la base de datos (debes configurar los datos de conexión)
-$host = 'localhost';
-$db   = 'nuevoglobaly_juegosscoresdb';
-$user = 'nuevoglobaly_admin'; 
-$pass = 'e?PVnq~Gu$s('; 
-$charset = 'utf8';
+require "./DAL/conn.php";
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [

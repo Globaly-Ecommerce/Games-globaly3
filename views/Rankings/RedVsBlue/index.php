@@ -207,7 +207,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     success: function(response) {
                                         // Maneja la respuesta del servidor si es necesario
                                         // Por ejemplo, puedes mostrar el comentario recién enviado en la sección de comentarios existente
-                                        alert(response); // Esto es solo un ejemplo, puedes personalizarlo
+                                      // Esto es solo un ejemplo, puedes personalizarlo
                                     }
                                 });
                             });

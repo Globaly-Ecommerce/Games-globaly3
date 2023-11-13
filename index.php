@@ -9,7 +9,13 @@ if (isset($_SESSION['nombre_usuario'])) {
     $nombreUsuario = "Invitado"; // Ejemplo de un valor por defecto
 }
 
-$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+    $protocol = 'https://';
+} else {
+    $protocol = 'http://';
+}
+
+$baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
 ?>
 <!DOCTYPE html>
@@ -135,7 +141,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active">
                     <img src="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/portada.png" class="slider-image" alt="">
                     <div class="content">
-                        <a href="anime-detail.html"><h2 class="color-white mb-32">Flappy Globy</h2></a>
+                        <a href="anime-detail.html"><h2 class="color-white mb-32">Globy Adventure</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
