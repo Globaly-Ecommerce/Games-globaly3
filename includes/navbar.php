@@ -5,7 +5,7 @@ if (isset($_SESSION['usuario_id'])) {
     $username = "Invitado";
 }
 
-$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/Games-globaly2-main/";
+$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 ?>
 
 <header>
