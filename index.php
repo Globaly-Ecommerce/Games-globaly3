@@ -9,7 +9,7 @@ if (isset($_SESSION['nombre_usuario'])) {
     $nombreUsuario = "Invitado"; // Ejemplo de un valor por defecto
 }
 
-$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
+$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
 ?>
 <!DOCTYPE html>

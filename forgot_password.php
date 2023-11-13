@@ -4,7 +4,7 @@ session_start();
 $message = $_SESSION['message'] ?? '';
 $error = $_SESSION['error'] ?? '';
 unset($_SESSION['message'], $_SESSION['error']);
-$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
+$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
 ?>
 <!DOCTYPE html>
