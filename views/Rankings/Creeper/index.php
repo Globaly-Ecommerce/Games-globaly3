@@ -224,8 +224,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             </footer>
             <!-- footer Area end -->
             <!-- modal-popup area start  -->
-
-
                         </div>
                     </div>
                 </div>

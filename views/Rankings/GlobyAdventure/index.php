@@ -138,7 +138,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 </html>
 <div class="raiting-list st-2">
     <ul class="unstyled">
-
     </ul>
 </div>
 </div>
@@ -215,29 +214,25 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                     <!-- footer Area start -->
                     <footer class="footer pt-80">
-                        <div class="container-fluid">
-                            <ul class="social-icon unstyled mb-32">
-                                <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/instagram.png" alt=""></a></li>
-                                <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/facebook.png" alt=""></a></li>
-                                <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/twitter.png" alt=""></a></li>
-                            </ul>
-                            <div class="copyright-text">
-                                <div class="row">
-                                    <div class="col-lg-4 offset-lg-4">
-                                        <p class="color-gray mb-lg-0 mb-32">Derechos reservados Globaly ©2023.</p>
-                                    </div>
-                                    <div class="col-lg-4 text-lg-end text-center">
-                                        <a href="" class="ps-0">
-                                            <p class="color-gray">Privacy Policy</p>
-                                        </a>
-                                        <a href="">
-                                            <p class="color-gray">Comments Policy</p>
-                                        </a>
-                                    </div>
-                                </div>
+                <div class="container-fluid">
+                    <ul class="social-icon unstyled mb-32">
+                        <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/instagram.png" alt=""></a></li>
+                        <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/facebook.png" alt=""></a></li>
+                        <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/twitter.png" alt=""></a></li>
+                    </ul>
+                    <div class="copyright-text">
+                        <div class="row">
+                            <div class="col-lg-4 offset-lg-4">
+                                <p class="color-gray mb-lg-0 mb-32">Derechos reservados Globaly ©2023.</p>
+                            </div>
+                            <div class="col-lg-4 text-lg-end text-center">
+                                <a href="" class="ps-0"><p class="color-gray">Privacy Policy</p></a>
+                                <a href=""><p class="color-gray">Comments Policy</p></a>
                             </div>
                         </div>
-                    </footer>
+                    </div>
+                </div>
+            </footer>
                     <!-- footer Area end -->
                     <!-- modal-popup area start  -->
                     <div class="modal fade" id="videoModal" role="dialog" aria-hidden="true">

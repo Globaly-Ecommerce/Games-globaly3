@@ -26,14 +26,9 @@ $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
             <span class="high-score high-score-val"><?php echo $userScore['highscore']; ?></span>
         </div>
         <div class="contenedor-botones">
-           
         </div>
     </div>
     <div class="game-over">GAME OVER</div>
 </body>
 <script src="juego.js"></script>
 </html>
-
-
-    
-

@@ -86,7 +86,12 @@ function Update() {
   velY -= gravedad * deltaTime;
 }
 
+document.addEventListener("touchstart", function(event) {
+  event.preventDefault(); // Evita el comportamiento predeterminado del toque (por ejemplo, hacer zoom en la página)
+  Saltar(); // Llama a la función de salto cuando se toca en cualquier parte de la pantalla
+});
 function HandleKeyDown(ev) {
+  
   if (ev.keyCode == 32) {
     Saltar();
   }
@@ -202,7 +207,7 @@ function GanarPuntos() {
   score++;
   textoScore.innerText = score;
   if (score == 5) {
-    gameVel = 1.5;
+    gameVel = 1.2;
     contenedor.classList.add("mediodia");
   } else if (score == 10) {
     gameVel = 2;

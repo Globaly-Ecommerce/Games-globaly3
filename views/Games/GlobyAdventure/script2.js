@@ -296,8 +296,7 @@ function displayHighScore() {
  
 }
 function enviarPuntuacion(puntaje) {
-  console.log("Enviar puntuacion!!!");
-  console.log("EJ SCORE ES. " + score)
+
   // Datos que deseas enviar en la solicitud POST
   const data = {
     juego_id: "5",
@@ -331,7 +330,6 @@ function enviarPuntuacion(puntaje) {
 function displayGameOver() {
   const highScore = document.querySelector(".high-score").textContent;
   if (score > highScore) {
-    console.log("Nuevo highscore!")
     enviarPuntuacion(score)
   }
 
