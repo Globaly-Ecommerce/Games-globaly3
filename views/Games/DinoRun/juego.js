@@ -85,9 +85,6 @@ function Update() {
 
   velY -= gravedad * deltaTime;
 }
-
-
-
 function Saltar() {
   if (dinoPosY === sueloY) {
     saltando = true;
@@ -307,3 +304,78 @@ function IsCollision(
     aRect.left + paddingLeft > bRect.left + bRect.width
   );
 }
+function GameOver() {
+  // ... resto del código de GameOver ...
+  Estrellarse();
+  UpdateAndSaveHighScore();
+  gameOver.style.display = "block";
+  document.querySelector('.game-over-controls').style.display = 'block';
+  parado = true; // Detiene el juego
+}
+
+document.getElementById('btnRestart').addEventListener('click', function() {
+  // Reiniciar el juego
+  RestartGame();
+});
+
+document.getElementById('btnBack').addEventListener('click', function() {
+  // Lógica para "Regresar", como volver al menú principal
+  GoBack();
+});
+function RestartGame() {
+  // Restablece todas las variables del juego a sus estados iniciales
+  deltaTime = 0;
+
+  sueloY = 22;
+  velY = 0;
+  impulso = 900;
+  gravedad = 2500;
+
+  dinoPosX = 42;
+  dinoPosY = sueloY;
+
+  sueloX = 0;
+  velEscenario = 1280 / 3;
+  gameVel = 1;
+  score = 0;
+
+  parado = false;
+  saltando = false;
+
+  tiempoHastaObstaculo = 2;
+  tiempoObstaculoMin = 0.7;
+  tiempoObstaculoMax = 1.8;
+
+  obstaculos = []; // Vacía la lista de obstáculos
+  nubes = []; // Vacía la lista de nubes
+
+  // Reiniciar los elementos del DOM si es necesario
+  gameOver.style.display = "none";
+  document.querySelector('.game-over-controls').style.display = 'none';
+  dino.classList.remove("dino-estrellado");
+  dino.classList.add("dino-corriendo");
+
+  // Elimina todos los obstáculos y nubes del DOM
+  document.querySelectorAll('.cactus').forEach(el => el.remove());
+  document.querySelectorAll('.nube').forEach(el => el.remove());
+
+  // Reinicia la animación y la lógica del juego
+  Loop();
+}
+
+
+function GoBack() {
+  window.location.href = '../../Rankings/DinoRun/index.php';
+
+  // Lógica para "Regresar"
+  // Por ejemplo, cambiar de pantalla o recargar la página
+}
+document.getElementById('btnRestart').addEventListener('touchend', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado
+  RestartGame();
+});
+
+document.getElementById('btnBack').addEventListener('touchend', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado
+  GoBack();
+});

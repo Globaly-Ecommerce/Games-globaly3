@@ -181,3 +181,19 @@ body{
         background-position-x: -252px;
     }
 }
+.game-over-controls {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100; /* Asegúrate de que estén por encima de otros elementos */
+  }
+  
+  .game-over-controls button {
+    background-color: #d48871;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1.5em;
+    /* Otros estilos según tus preferencias */
+  }
