@@ -86,7 +86,16 @@ function Update() {
   velY -= gravedad * deltaTime;
 }
 
-document.addEventListener("touchstart", function(event) {
+
+
+function Saltar() {
+  if (dinoPosY === sueloY) {
+    saltando = true;
+    velY = impulso;
+    dino.classList.remove("dino-corriendo");
+  }
+}
+document.addEventListener("touchend", function(event) {
   event.preventDefault(); // Evita el comportamiento predeterminado del toque (por ejemplo, hacer zoom en la página)
   Saltar(); // Llama a la función de salto cuando se toca en cualquier parte de la pantalla
 });
@@ -94,14 +103,6 @@ function HandleKeyDown(ev) {
   
   if (ev.keyCode == 32) {
     Saltar();
-  }
-}
-
-function Saltar() {
-  if (dinoPosY === sueloY) {
-    saltando = true;
-    velY = impulso;
-    dino.classList.remove("dino-corriendo");
   }
 }
 
