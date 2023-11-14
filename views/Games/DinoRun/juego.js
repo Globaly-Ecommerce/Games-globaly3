@@ -220,19 +220,16 @@ function GanarPuntos() {
 }
 
 function UpdateAndSaveHighScore() {
-  console.log(score, highScore);
   if (score > highScore) {
     highScore = score;
     document.querySelector(".high-score-val").innerText = highScore;
     console.log("enviando puntaje...");
     enviarPuntuacion(highScore);
   } else {
-    console.log("El score no es mayor al high score")
   }
 }
 
 function enviarPuntuacion(puntaje) {
-  console.log("Enviar puntuacion!!!");
   // Datos que deseas enviar en la solicitud POST
   const data = {
     juego_id: "4",
@@ -270,7 +267,6 @@ function enviarPuntuacion(puntaje) {
 }
 
 function GameOver() {
-  console.log("juego finalizado");
   Estrellarse();
   UpdateAndSaveHighScore(); // Aquí actualizas y guardas el high score
   gameOver.style.display = "block";

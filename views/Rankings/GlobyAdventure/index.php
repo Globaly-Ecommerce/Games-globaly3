@@ -157,7 +157,8 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         <p class="color-gray mb-32 link-text">
                             <br> Favor escribe un comentario<b class="color-primary">Comments Policy.
                         </p>
-
+                        <!-- mensaje de enviado con exito -->
+                        <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
                         <div class="comment-form mb-32">
                             <h4>Comentarios</h4>
                             <form id="comment-form">
@@ -187,10 +188,32 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <script>
-                        $(document).ready(function() {
+                            $(document).ready(function() {
+                                function mostrarMensajeExito() {
+                                        $("#mensaje-exito").fadeIn().delay(2000).fadeOut(); // Mostrar durante 2 segundos y luego ocultar
+                                    }
+                            // Función para cargar comentarios existentes
+                            function cargarComentarios() {
+                                $.ajax({
+                                    type: "GET", // Cambia a GET para obtener comentarios
+                                    url: "<?php echo $baseUrl; ?>obtener_comentarios.php", // Asegúrate de que la URL sea correcta
+                                    data: { juego_id: 5 }, // Cambia el juego_id según sea necesario
+                                    success: function(response) {
+                                        // Actualiza la lista de comentarios con los comentarios obtenidos
+                                        $("#comentarios-container").html(response);
+                                    }
+                                });
+                            }
+
+                            // Carga los comentarios existentes cuando la página se carga inicialmente
+                            cargarComentarios();
+
+                            // Establece un intervalo para cargar comentarios periódicamente (cada 10 segundos en este ejemplo)
+                            setInterval(cargarComentarios, 1000); // 10000 milisegundos = 10 segundos
+
                             $("#comment-form").submit(function(event) {
                                 event.preventDefault();
-                        
+                            
                                 var juego_id = 5;
                                 var comentario = $("#comentario").val();
                                 var usuario_id = $("#usuario_id").val();
@@ -199,9 +222,14 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                 $.ajax({
                                     type: "POST",
                                     url: "<?php echo $baseUrl; ?>guardar_comentario.php", // Asegúrate de que la URL sea correcta
-                                    data: { juego_id: juego_id, comentario: comentario, usuario_id : usuario_id },
+                                    data: { juego_id: juego_id, comentario: comentario, usuario_id: usuario_id },
                                     success: function(response) {
-                                        console.log("Comentario guardado")
+                                        // Limpia el campo de comentario después de enviarlo
+                                        mostrarMensajeExito();
+
+                                        $("#comentario").val("");
+                                        // Carga los comentarios nuevamente después de agregar uno nuevo
+                                        cargarComentarios();
                                     }
                                 });
                             });
