@@ -3,7 +3,14 @@
     padding: 0;
     margin: 0;
 }
-
+body, html {
+    max-width: 100vw; /* Ancho máximo igual al ancho de la ventana de visualización */
+    max-height: 100vh; /* Altura máxima igual a la altura de la ventana de visualización */
+    overflow: hidden; /* Oculta y deshabilita el desbordamiento (scroll) */
+    position: fixed; /* Fija el cuerpo y el html para evitar el desplazamiento */
+    width: 100%; /* Establece el ancho al 100% de la ventana de visualización */
+    height: 100%; /* Establece la altura al 100% de la ventana de visualización */
+}
 body{
     height: 100vh;
     background: #584040;
@@ -166,7 +173,8 @@ body{
 
 
     text-align: center;
-    color: #7e928b;
+    color: #ff0000;
+    z-index: 5;
     font-size: 30px;
     font-family: Verdana;
     font-weight: 700;
@@ -192,8 +200,28 @@ body{
   .game-over-controls button {
     background-color: #d48871;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 10px;
     margin: 5px;
     font-size: 1.5em;
+    border-radius: 5px;
     /* Otros estilos según tus preferencias */
+  }
+  @media screen and (max-width: 600px) {
+    .game-over-controls {
+      bottom: 10%; /* Menor distancia desde el borde inferior */
+    }
+  
+    .game-over-controls button {
+      padding: 8px 16px; /* Mayor tamaño para facilitar la interacción táctil */
+      font-size: 1em; /* Tamaño de fuente ajustado para pantallas más pequeñas */
+      /* Puedes agregar otros estilos específicos para móviles aquí */
+     
+    }
+  }
+  #btnRestart{
+    background-color: rgb(255, 145, 0);
+  }
+  #btnBack{
+    background-color: rgb(163, 211, 108);
+
   }

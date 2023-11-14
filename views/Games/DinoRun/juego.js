@@ -211,7 +211,7 @@ function GanarPuntos() {
     gameVel = 2;
     contenedor.classList.add("tarde");
   } else if (score == 20) {
-    gameVel = 3;
+    gameVel = 2;
     contenedor.classList.add("noche");
   }
   suelo.style.animationDuration = 3 / gameVel + "s";

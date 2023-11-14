@@ -179,6 +179,8 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     <h3 class="color-white mb-8">Comments</h3>
                                     <p class="color-gray mb-32 link-text">We hope you have a good time browsing the comment section! <br> Please read our <b class="color-primary">Comments Policy </b>before commenting.</p>
                                     <div class="comment-form mb-32">
+                                    <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
+
                         <h4>Comments</h4>
                         <form id="comment-form">
                             <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
@@ -207,7 +209,9 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         $(document).ready(function() {
                             $("#comment-form").submit(function(event) {
                                 event.preventDefault();
-                        
+                                function mostrarMensajeExito() {
+                                        $("#mensaje-exito").fadeIn().delay(2000).fadeOut(); // Mostrar durante 2 segundos y luego ocultar
+                                    }
                                 var juego_id = 4;
                                 var comentario = $("#comentario").val();
                                 var usuario_id = $("#usuario_id").val();
@@ -216,8 +220,14 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                 $.ajax({
                                     type: "POST",
                                     url: "<?php echo $baseUrl; ?>guardar_comentario.php", // Asegúrate de que la URL sea correcta
-                                    data: { juego_id: juego_id, comentario: comentario, usuario_id : usuario_id },
+                                    data: { juego_id: juego_id, comentario: comentario, usuario_id: usuario_id },
                                     success: function(response) {
+                                        // Limpia el campo de comentario después de enviarlo
+                                        mostrarMensajeExito();
+
+                                        $("#comentario").val("");
+                                        // Carga los comentarios nuevamente después de agregar uno nuevo
+                                        cargarComentarios();
                                     }
                                 });
                             });
