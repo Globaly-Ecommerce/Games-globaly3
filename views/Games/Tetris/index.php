@@ -23,8 +23,52 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
             height: 640px;
             margin: -320px 0 0 -320px;
         }
+        
     </style>
 </head>
+
+<Script>// Agregar manejadores de eventos táctiles para los botones de flecha
+var leftArrowButton = document.getElementById('left-arrow');
+var rightArrowButton = document.getElementById('right-arrow');
+var downArrowButton = document.getElementById('down-arrow');
+
+leftArrowButton.addEventListener('touchstart', handleLeftArrowTouchStart, false);
+leftArrowButton.addEventListener('touchend', handleLeftArrowTouchEnd, false);
+rightArrowButton.addEventListener('touchstart', handleRightArrowTouchStart, false);
+rightArrowButton.addEventListener('touchend', handleRightArrowTouchEnd, false);
+downArrowButton.addEventListener('touchstart', handleDownArrowTouchStart, false);
+downArrowButton.addEventListener('touchend', handleDownArrowTouchEnd, false);
+
+function handleLeftArrowTouchStart(event) {
+    // Agregar lógica para mover la pieza hacia la izquierda aquí
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
+}
+
+function handleLeftArrowTouchEnd(event) {
+    // Agregar lógica para detener el movimiento de la pieza hacia la izquierda aquí
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
+}
+
+function handleRightArrowTouchStart(event) {
+    // Agregar lógica para mover la pieza hacia la derecha aquí
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
+}
+
+function handleRightArrowTouchEnd(event) {
+    // Agregar lógica para detener el movimiento de la pieza hacia la derecha aquí
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
+}
+
+function handleDownArrowTouchStart(event) {
+    // Agregar lógica para hacer que la pieza caiga más rápido aquí
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
+}
+
+function handleDownArrowTouchEnd(event) {
+    // Agregar lógica para detener la caída rápida de la pieza aquí
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
+}
+</Script>
 
 <body>
 
@@ -33,6 +77,7 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
     </form>
 
     <script>
+        
         'use strict';
         var canvas = document.querySelector('canvas');
         canvas.width = 640;
