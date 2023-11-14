@@ -196,7 +196,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                             function cargarComentarios() {
                                 $.ajax({
                                     type: "GET", // Cambia a GET para obtener comentarios
-                                    url: "<?php echo $baseUrl; ?>obtener_comentarios.php", // Asegúrate de que la URL sea correcta
                                     data: { juego_id: 5 }, // Cambia el juego_id según sea necesario
                                     success: function(response) {
                                         // Actualiza la lista de comentarios con los comentarios obtenidos

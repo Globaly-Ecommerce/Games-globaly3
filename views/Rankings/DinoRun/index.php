@@ -176,17 +176,17 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="comments mb-64 mb-xl-0">
-                                    <h3 class="color-white mb-8">Comments</h3>
-                                    <p class="color-gray mb-32 link-text">We hope you have a good time browsing the comment section! <br> Please read our <b class="color-primary">Comments Policy </b>before commenting.</p>
+                                    <h3 class="color-white mb-8">Comentarios</h3>
+                                    <p class="color-gray mb-32 link-text">Favor escribe un comentario  <b class="color-primary">Comments Policy </b></p>
                                     <div class="comment-form mb-32">
                                     <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
 
-                        <h4>Comments</h4>
+                        <h4>Dinorun Comentarios</h4>
                         <form id="comment-form">
                             <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
                             <input type="hidden" id="usuario_id" name="usuario_id" value=<?php echo $_SESSION['nombre_usuario'];?>>
                             <div class="input-group">
-                                <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Write your comment">
+                                <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Escribe un comentario">
                                 <button type="submit">Post</button>
                             </div>
                         </form>
@@ -249,7 +249,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="copyright-text">
                     <div class="row">
                         <div class="col-lg-4 offset-lg-4">
-                            <p class="color-gray mb-lg-0 mb-32">All rights reserved by Visual ©2023.</p>
+                            <p class="color-gray mb-lg-0 mb-32">Derechos reservados Globaly ©2023.</p>
                         </div>
                         <div class="col-lg-4 text-lg-end text-center">
                             <a href="" class="ps-0">
