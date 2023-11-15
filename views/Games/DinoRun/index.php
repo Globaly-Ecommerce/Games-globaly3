@@ -26,7 +26,7 @@ $highscore = $userScore ? $userScore['highscore'] : 0;
     <link rel="stylesheet" href="juego.css">
 </head>
 <body>
-    <div class="contenedor">
+    <div class="contenedor" id="myGameCanvas">
         <div class="suelo"></div>
         <div class="dino dino-corriendo"></div>  
         <div class="score">0</div>

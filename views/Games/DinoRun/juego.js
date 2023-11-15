@@ -379,3 +379,6 @@ document.getElementById('btnBack').addEventListener('touchend', function(event) 
   event.preventDefault(); // Prevenir el comportamiento predeterminado
   GoBack();
 });
+window.onload = function() {
+  openFullscreen();
+};
