@@ -26,7 +26,7 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
         <div class="username-container">
             <div class="button-container">
                 <button id="restartButton" class="btn btn-danger mt-2 hide">Reiniciar</button>
-                <button id="btnBack">Regresar</button>
+                <button id="btnBack" class="hide">Regresar</button>
             </div>
             <div class="high-score-text">
                 <span class="high-score"><?php echo htmlspecialchars($highScore); ?></span>

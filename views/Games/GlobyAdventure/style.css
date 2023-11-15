@@ -155,3 +155,17 @@ body {
   width: 100%; /* Asegúrate de que las imágenes se ajusten al ancho del dispositivo */
   height: auto;
 }
+#btnBack{
+  background-color: rgb(108, 149, 211);
+  color: white;
+  padding: 8px 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  width: 90%;
+  margin: 10px;
+  color: white;
+  border-radius: 5px;
+}
+.hide {
+  display: none;
+}

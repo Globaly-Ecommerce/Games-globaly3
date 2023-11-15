@@ -100,6 +100,7 @@ function handleCountdown() {
 // Función para iniciar el juego
 function startGame() {
   if (!gameStarted) {
+    hideButton('btnBack'); 
     gameStarted = true;
     btnGameOver.classList.add("hide"); 
     resetGame();
@@ -328,6 +329,7 @@ function enviarPuntuacion(puntaje) {
 }
 // Función para mostrar el mensaje de Game Over y la puntuación
 function displayGameOver() {
+  showButton('btnBack');
   const highScore = document.querySelector(".high-score").textContent;
   if (score > highScore) {
     enviarPuntuacion(score)
@@ -413,9 +415,30 @@ function GoBack() {
   // Lógica para "Regresar"
   // Por ejemplo, cambiar de pantalla o recargar la página
 }
+// Manejador para clics con el mouse
+document.getElementById('btnBack').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado si es necesario
+  GoBack();
+});
+
+// Manejador para toques en pantalla táctil
 document.getElementById('btnBack').addEventListener('touchend', function(event) {
   event.preventDefault(); // Prevenir el comportamiento predeterminado
   GoBack();
 });
+
+function hideButton(buttonId) {
+  const button = document.getElementById(buttonId);
+  if (button) {
+    button.classList.add("hide");
+  }
+}
+
+function showButton(buttonId) {
+  const button = document.getElementById(buttonId);
+  if (button) {
+    button.classList.remove("hide");
+  }
+}
 
 gameLoop();                                                // Inicia el bucle principal del juego.

@@ -36,7 +36,7 @@ $highscore = $userScore ? $userScore['highscore'] : 0;
         </div>
         <div class="game-over" style="display:none;">GAME OVER</div>
         <div class="game-over-controls" style="display:none;">
-            <button id="btnRestart">Reiniciar</button>
+            <button id="btnRestart">Reiniciar </button>
             <button id="btnBack">Regresar</button>
         </div>
     </div>

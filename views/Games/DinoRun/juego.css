@@ -220,7 +220,25 @@ body{
   }
   @media screen and (min-width: 600px) {
     .contenedor {
-        width: 95%;
-        height: 90vh;
+      width: 95%;
+      height: 90vh;
     }
-}
+    .game-over-controls {
+      position: fixed;
+      bottom: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centrado horizontal y vertical */
+      z-index: 100; /* Asegúrate de que estén por encima de otros elementos */
+      display: flex; /* Usa flexbox para alinear los elementos internos */
+      flex-direction: row; /* Alinea los elementos en una fila */
+      justify-content: center; /* Centra los elementos en el eje principal (horizontal) */
+      align-items: center; /* Centra los elementos en el eje transversal (vertical) */
+    }
+    
+    .game-over-controls button {
+      margin: 0 5px; /* Añade un poco de margen entre los botones */
+      padding: 10px 20px; /* Añade un poco más de espacio interior para facilitar la interacción */
+      /* Otros estilos de botón... */
+    }
+  }
+  
