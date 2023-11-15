@@ -407,6 +407,15 @@ if (mobileDevice) {
     const pipeGap = 250;
 }
 
+function GoBack() {
+  window.location.href = '../../Rankings/GlobyAdventure/index.php';
 
+  // Lógica para "Regresar"
+  // Por ejemplo, cambiar de pantalla o recargar la página
+}
+document.getElementById('btnBack').addEventListener('touchend', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado
+  GoBack();
+});
 
 gameLoop();                                                // Inicia el bucle principal del juego.

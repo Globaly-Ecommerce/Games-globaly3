@@ -12,10 +12,15 @@ body, html {
     height: 100%; /* Establece la altura al 100% de la ventana de visualización */
 }
 body{
-    height: 100vh;
     background: #584040;
     display: flex;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
 .contenedor-botones {
     position: fixed; /* O absolute, dependiendo de cómo esté estructurado tu HTML */
@@ -57,14 +62,14 @@ body{
 
     color: #d48871;
     font-family: Verdana;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
     text-align: right;
 }
 .contenedor {
-    width: 95%;
-    height: 90vh;
-    margin: 0 auto;
+    width: 90%;
+    height: 80vh;
+    margin:  auto;
     
     position: relative;
 
@@ -82,7 +87,7 @@ body{
 }
 
 .noche {
-    background-color: #a39ccf;
+    background-color: #595577;
 }
 
 .dino {
@@ -206,18 +211,6 @@ body{
     border-radius: 5px;
     /* Otros estilos según tus preferencias */
   }
-  @media screen and (max-width: 600px) {
-    .game-over-controls {
-      bottom: 10%; /* Menor distancia desde el borde inferior */
-    }
-  
-    .game-over-controls button {
-      padding: 8px 16px; /* Mayor tamaño para facilitar la interacción táctil */
-      font-size: 1em; /* Tamaño de fuente ajustado para pantallas más pequeñas */
-      /* Puedes agregar otros estilos específicos para móviles aquí */
-     
-    }
-  }
   #btnRestart{
     background-color: rgb(255, 145, 0);
   }
@@ -225,3 +218,9 @@ body{
     background-color: rgb(163, 211, 108);
 
   }
+  @media screen and (min-width: 600px) {
+    .contenedor {
+        width: 95%;
+        height: 90vh;
+    }
+}
