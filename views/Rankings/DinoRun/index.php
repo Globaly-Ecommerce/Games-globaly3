@@ -181,7 +181,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     <div class="comment-form mb-32">
                                     <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
 
-                        <h4>Dinorun Comentarios</h4>
                         <form id="comment-form">
                             <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
                             <input type="hidden" id="usuario_id" name="usuario_id" value=<?php echo $_SESSION['nombre_usuario'];?>>
@@ -194,7 +193,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                     <!-- Aquí comienza la sección de mostrar comentarios -->
                     <div class="existing-comments">
-                        <h4>Existing Comments</h4>
+                    <h4>Comentarios de DinoRun</h4>
                         <?php foreach ($comentarios as $comentario): ?>
                             <div class="comment">
                                 <p><strong>User:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
