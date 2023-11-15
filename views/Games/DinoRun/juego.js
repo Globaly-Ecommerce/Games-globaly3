@@ -329,7 +329,7 @@ function RestartGame() {
   sueloY = 22;
   velY = 0;
   impulso = 900;
-  gravedad = 2500;
+  gravedad = 2000;
 
   dinoPosX = 42;
   dinoPosY = sueloY;
