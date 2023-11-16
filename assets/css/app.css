@@ -2278,11 +2278,11 @@ header.st-2 .icon-arrow:hover {
   object-position: center;
   height: 100%;
 }
-@media (max-width: 575px) {
+/* @media (max-width: 575px) {
   .hero-banner-1 .item .slider-image {
     height: auto;
   }
-}
+} */
 .hero-banner-1 .item .content {
   position: absolute;
   bottom: 0;
@@ -3249,6 +3249,7 @@ header.st-2 .icon-arrow:hover {
   .modal .modal-dialog {
     max-width: 80%;
   }
+  
 }
 @media (max-width: 575px) {
   .modal .modal-dialog {
@@ -4049,3 +4050,6 @@ header.st-2 .icon-arrow:hover {
 }
 
 /*# sourceMappingURL=app.css.map */
+strong{
+  color:#1877F2 ;
+}

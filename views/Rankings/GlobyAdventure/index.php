@@ -153,33 +153,33 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <div class="row">
                 <div class="col-xl-8">
                     <div class="comments mb-64 mb-xl-0">
-                        <h3 class="color-white mb-8">Comentarios</h3>
+                        <h2 class="color-white mb-8">Deja un comentario</h2>
                         <p class="color-gray mb-32 link-text">
                             <br> Favor escribe un comentario<b class="color-primary">Comments Policy.
                         </p>
                         <!-- mensaje de enviado con exito -->
                         <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
                         <div class="comment-form mb-32">
-                            <h4>Comentarios</h4>
-                            <form id="comment-form">
-                                <input type="hidden" id="juego_id" name="juego_id" value="<?php echo $juego_id; ?>">
+                                <h4>Comentarios</h4>
+                                <form id="comment-form">
+                                    <input type="hidden" id="juego_id" name="juego_id" value="<?php echo $juego_id; ?>">
+                                    <input type="hidden" id="usuario_id" name="usuario_id" value="<?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>">
 
-                                <input type="hidden" id="usuario_id" name="usuario_id"
-                                    value="<?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>">
-                                <div class="input-group">
-                                    <input type="text" class="form-control p-0 border-0" name="comentario"
-                                        id="comentario" required placeholder="Escribe un comentario">
-                                    <button type="submit">Post</button>
-                                </div>
-                            </form>
-                        </div>
+                                    <!-- Textarea for writing comments -->
+                                    <div class="input-group">
+                                        <textarea class="form-control p-0 border-0" name="comentario" id="comentario" rows="4" required placeholder="Añade tu comentario aquí"></textarea>
+                                        <button type="submit">Publicar</button>
+                                    </div>
+                                </form>
+                            </div>
+
 
                         <!-- Aquí comienza la sección de mostrar comentarios -->
                         <div class="existing-comments">
                         <h4>Comentarios de Globy Adventure</h4>
                         <?php foreach ($comentarios as $comentario): ?>
                             <div class="comment">
-                                <p><strong>User:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
+                                <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
                                 <p><?php echo htmlspecialchars($comentario['contenido']); ?></p>
                             </div>
                         <?php endforeach; ?>
@@ -261,21 +261,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 </div>
             </footer>
                     <!-- footer Area end -->
-                    <!-- modal-popup area start  -->
-                    <div class="modal fade" id="videoModal" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="top_bar">
-                                    <h4 class="modal-title">Demon Slayer Season 4</h4>
-                                    <button type="button" class="close" id="closeVideoModalButton" data-dismiss="modal"
-                                        aria-label="Close">
-                                        <span aria-hidden="true"><i class="fas fa-times"></i> <b>Close</b></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- modal-popup area end  -->
                 </div>
                 <!-- Jquery Js -->
                 <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery-3.6.3.min.js"></script>
