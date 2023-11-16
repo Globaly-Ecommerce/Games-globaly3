@@ -9,14 +9,21 @@ $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
 // Verifica si $userScore es un array antes de intentar mostrar la puntuación.
 $highScore = $userScore ? $userScore['highscore'] : '0';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
+<div id="touchControls">
+            <button id="moveLeftButton">Mover Izquierda</button>
+            <button id="moveRightButton">Mover Derecha</button>
+            <button id="shootButton">Disparar</button>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style>
+@media screen and (orientation: landscape) {
+  /* Estilos específicos para orientación horizontal */
+}
+
+
     body {
       margin: 0;
       display: flex;
@@ -199,11 +206,24 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
 
     // ... Resto de tu script de juego ...
 
+
     let highScore = 0;
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     const startButton = document.getElementById("startButton");
     const creepAudio = document.getElementById("creepAudio");
+    canvas.addEventListener('touchstart', function(event) {
+  // Código para disparar la flecha
+  event.preventDefault(); // Esto evita el comportamiento por defecto del evento táctil, como el desplazamiento de la pantalla.
+}, false);
+
+canvas.addEventListener('touchmove', function(event) {
+  var touch = event.touches[0];
+  var touchX = touch.clientX; // Obtén la posición X del toque
+  // Actualiza la posición del disparador aquí, usando touchX
+  event.preventDefault();
+}, false);
+
 
     function playCreepAudio() {
       creepAudio.volume = 0.5;
@@ -600,6 +620,21 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
         ctx.restore();
       }
     }
+// Habilitar el modo de pantalla completa
+function enterFullscreen() {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.mozRequestFullScreen) {
+    document.documentElement.mozRequestFullScreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) {
+    document.documentElement.msRequestFullscreen();
+  }
+}
+
+// Llamar a la función cuando se inicie el juego
+enterFullscreen();
 
     function checkCollisions() {
       creepers.forEach((creeper, creeperIndex) => {

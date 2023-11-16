@@ -203,10 +203,10 @@ h1 {
         </div>
     </div>
     <script type="module">
-
+        
         const highScoreElement = document.getElementById('highScore');
         let highScore = localStorage.getItem('highScore') || 0;
-
+        let jumpCount = 0;
         import * as THREE from 'three'
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
@@ -301,21 +301,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             applyGravity(ground) {
-                this.velocity.y += this.gravity
+            this.velocity.y += this.gravity;
 
+             if (boxCollision({ box1: this, box2: ground })) {
+                const friction = 0.5;
+                this.velocity.y *= friction;
+                this.velocity.y = -this.velocity.y;
 
-                if (
-                    boxCollision({
-                        box1: this,
-                        box2: ground
-                    })
-                ) {
-                    const friction = 0.5
-                    this.velocity.y *= friction
-                    this.velocity.y = -this.velocity.y
-                } else this.position.y += this.velocity.y
-            }
-        }
+                // Restablecer el contador de saltos al tocar la plataforma
+                jumpCount = 0;
+             } else {
+                this.position.y += this.velocity.y;
+                }
+         }
+    } 
         
         function enviarPuntuacion(puntaje) {
             console.log("Game over!!!")
@@ -497,6 +496,50 @@ window.addEventListener('keyup', (event) => {
             break;
     }
 });
+document.addEventListener('touchstart', (event) => {
+    const touchX = event.touches[0].clientX;
+    const touchY = event.touches[0].clientY;
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Divide la pantalla en zonas
+    const isLeft = touchX < screenWidth / 4;
+    const isRight = touchX > screenWidth * 3 / 4;
+    const isTop = touchY < screenHeight / 2;
+    const isBottom = touchY > screenHeight / 2;
+
+    // Asignar acciones
+    if (isLeft) {
+        keys.a.pressed = true;
+    } else if (isRight) {
+        keys.d.pressed = true;
+    }
+
+    if (isTop && !isBottom) {
+        keys.w.pressed = true;
+    } else if (!isTop && isBottom) {
+        keys.s.pressed = true;
+    }
+
+   // Permitir saltar solo si el contador de saltos es menor que 2
+   if (jumpCount < 2) {
+        cube.velocity.y = 0.08;
+        jumpCount++;
+    }
+});
+
+document.addEventListener('touchend', () => {
+    keys.a.pressed = false;
+    keys.d.pressed = false;
+    keys.w.pressed = false;
+    keys.s.pressed = false;
+});
+
+
+
+
+
+
 
         const enemies = []
 

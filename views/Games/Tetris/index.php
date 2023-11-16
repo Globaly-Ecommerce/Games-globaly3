@@ -8,13 +8,17 @@ $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Verifica si $userScore es un array antes de intentar mostrar la puntuación.
 $highScore = $userScore ? $userScore['highscore'] : '0';
-?>
+?> 
 
 <html lang='en'>
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <meta charset='UTF-8'>
     <style>
+
+        
         canvas {
             position: absolute;
             top: 45%;
@@ -23,61 +27,28 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
             height: 640px;
             margin: -320px 0 0 -320px;
         }
-        
+
+        #rotateButton {
+    position: absolute;
+    bottom: -95px; /* Ajusta según sea necesario */
+    left: 28%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 15px; /* Ajusta el tamaño para dispositivos móviles */
+    cursor: pointer;
+}
+
     </style>
 </head>
-
-<Script>// Agregar manejadores de eventos táctiles para los botones de flecha
-var leftArrowButton = document.getElementById('left-arrow');
-var rightArrowButton = document.getElementById('right-arrow');
-var downArrowButton = document.getElementById('down-arrow');
-
-leftArrowButton.addEventListener('touchstart', handleLeftArrowTouchStart, false);
-leftArrowButton.addEventListener('touchend', handleLeftArrowTouchEnd, false);
-rightArrowButton.addEventListener('touchstart', handleRightArrowTouchStart, false);
-rightArrowButton.addEventListener('touchend', handleRightArrowTouchEnd, false);
-downArrowButton.addEventListener('touchstart', handleDownArrowTouchStart, false);
-downArrowButton.addEventListener('touchend', handleDownArrowTouchEnd, false);
-
-function handleLeftArrowTouchStart(event) {
-    // Agregar lógica para mover la pieza hacia la izquierda aquí
-    event.preventDefault(); // Evita el comportamiento predeterminado del botón
-}
-
-function handleLeftArrowTouchEnd(event) {
-    // Agregar lógica para detener el movimiento de la pieza hacia la izquierda aquí
-    event.preventDefault(); // Evita el comportamiento predeterminado del botón
-}
-
-function handleRightArrowTouchStart(event) {
-    // Agregar lógica para mover la pieza hacia la derecha aquí
-    event.preventDefault(); // Evita el comportamiento predeterminado del botón
-}
-
-function handleRightArrowTouchEnd(event) {
-    // Agregar lógica para detener el movimiento de la pieza hacia la derecha aquí
-    event.preventDefault(); // Evita el comportamiento predeterminado del botón
-}
-
-function handleDownArrowTouchStart(event) {
-    // Agregar lógica para hacer que la pieza caiga más rápido aquí
-    event.preventDefault(); // Evita el comportamiento predeterminado del botón
-}
-
-function handleDownArrowTouchEnd(event) {
-    // Agregar lógica para detener la caída rápida de la pieza aquí
-    event.preventDefault(); // Evita el comportamiento predeterminado del botón
-}
-</Script>
 
 <body>
 
     <input type="hidden" name="highscore" id="highscore" value="<?php echo $highScore ?>">
     <canvas></canvas>
+    <button id="rotateButton">Rotar Figura</button>
     </form>
 
     <script>
-        
         'use strict';
         var canvas = document.querySelector('canvas');
         canvas.width = 640;
@@ -134,6 +105,76 @@ function handleDownArrowTouchEnd(event) {
 
         var grid = [];
         var scoreboard = new Scoreboard();
+
+        document.getElementById('rotateButton').addEventListener('click', function() {
+    if (canRotate(fallingShape)) {
+        rotate(fallingShape);
+        draw();
+    }
+});
+
+        var lastTouchEnd = 0;
+
+addEventListener('touchend', function(event) {
+    var now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) { // 300 ms para doble toque
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+        
+        
+
+        var touchStartX, touchStartY;
+
+addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+});
+
+addEventListener('touchmove', function(e) {
+    e.preventDefault(); // Evita desplazamientos de la página en dispositivos móviles
+
+    var touchEndX = e.touches[0].clientX;
+    var touchEndY = e.touches[0].clientY;
+
+    var deltaX = touchEndX - touchStartX;
+    var deltaY = touchEndY - touchStartY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // movimiento horizontal
+        if (deltaX > 30) { // ajusta el umbral según sea necesario
+            // mover a la derecha
+            if (canMove(fallingShape, right))
+                move(right);
+        } else if (deltaX < -30) { // ajusta el umbral según sea necesario
+            // mover a la izquierda
+            if (canMove(fallingShape, left))
+                move(left);
+        }
+    } else {
+        // movimiento vertical
+        if (deltaY > 30) { // ajusta el umbral según sea necesario
+            // mover hacia abajo (acelerar caída)
+            if (canMove(fallingShape, down))
+                move(down);
+        } else if (deltaY < -30) { // ajusta el umbral según sea necesario
+            // rotar la figura
+            if (canRotate(fallingShape))
+                rotate(fallingShape);
+        }
+    }
+
+    touchStartX = touchEndX;
+    touchStartY = touchEndY;
+    draw();
+});
+
+addEventListener('touchend', function(e) {
+    // Puedes implementar lógica adicional aquí si es necesario
+});
+
 
         addEventListener('keydown', function (event) {
             if (!keyDown) {
@@ -471,18 +512,74 @@ function handleDownArrowTouchEnd(event) {
             }
         }
 
+        
+        function calculateTextWidth(text, font) {
+    g.font = font;
+    return g.measureText(text).width;
+}
+
+var titleText = 'Tetris';
+var clickText = 'click to start';
+var titleWidth = calculateTextWidth(titleText, mainFont);
+var clickWidth = calculateTextWidth(clickText, smallFont);
+var padding = 20; // Espacio adicional alrededor del texto
+
+titleRect = {
+    x: (canvas.width - titleWidth) / 4 - padding / 2,
+    y: titleRect.y,
+    w: titleWidth + padding,
+    h: titleRect.h
+};
+
+clickRect = {
+    x: (canvas.width - clickWidth) / 4 - padding / 2,
+    y: clickRect.y,
+    w: clickWidth + padding,
+    h: clickRect.h
+};
+function drawStartScreen() {
+    // Dibujar el fondo del título
+    fillRect(titleRect, titlebgColor);
+    g.fillStyle = '#87CEEB'; // Color celeste suave para el título
+    g.fillText(titleText, titleRect.x + padding / 2, titleY);
+
+    // Dibujar el fondo para "click to start"
+    fillRect(clickRect, titlebgColor);
+    g.fillStyle = '#87CEEB'; // Color celestito suave para "click to start"
+    g.fillText(clickText, clickRect.x + padding / 2, clickY);
+}
+
         function drawStartScreen() {
-            g.font = mainFont;
+    // Fuente y color mejorados para el título
+    g.font = mainFont;
+    fillRect(titleRect, titlebgColor);
+    fillRect(clickRect, titlebgColor);
+    // Color celeste suave para el título "Tetris"
+    g.fillStyle = '#87CEEB'; // Este es un tono suave de celeste
+    g.fillText('Tetris', titleRect.x + 10, titleY); // Añadir 10px para el padding izquierdo
 
-            fillRect(titleRect, titlebgColor);
-            fillRect(clickRect, titlebgColor);
+    // Dibujar el fondo de los rectángulos
 
-            g.fillStyle = textColor;
-            g.fillText('Tetris', titleX, titleY);
 
-            g.font = smallFont;
-            g.fillText('click to start', clickX, clickY);
-        }
+    // Efecto de sombra para el título
+    g.shadowOffsetX = 2;
+    g.shadowOffsetY = 2;
+    g.shadowBlur = 2;
+    g.shadowColor = 'rgba(0, 0, 0, 0.5)';
+
+    // Restablecer efecto de sombra para otros elementos
+    g.shadowOffsetX = 2;
+    g.shadowOffsetY = 2;
+    g.shadowBlur = 5;
+
+    // Estilo para 'click to start'
+    // Cambiar la fuente para el texto "click to start"
+    g.font = smallFont;
+    fillRect(clickRect, '#FFFFFF'); // Un color verde oscuro para el fondo
+    g.fillStyle = '#87CEEB'; // Un tono más claro de celeste
+    g.fillText('click to start', clickRect.x + 10, clickY);
+}
+
 
         function fillRect(r, color) {
             g.fillStyle = color;
@@ -528,10 +625,10 @@ function handleDownArrowTouchEnd(event) {
             // scoreboard
             g.fillStyle = textColor;
             g.font = smallFont;
-            g.fillText('hiscore    ' + scoreboard.getTopscore(), scoreX, scoreY);
-            g.fillText('level      ' + scoreboard.getLevel(), scoreX, scoreY + 30);
-            g.fillText('lines      ' + scoreboard.getLines(), scoreX, scoreY + 60);
-            g.fillText('score      ' + scoreboard.getScore(), scoreX, scoreY + 90);
+            g.fillText('HiScore    ' + scoreboard.getTopscore(), scoreX, scoreY);
+            g.fillText('Level      ' + scoreboard.getLevel(), scoreX, scoreY + 30);
+            g.fillText('Lines      ' + scoreboard.getLines(), scoreX, scoreY + 60);
+            g.fillText('Score      ' + scoreboard.getScore(), scoreX, scoreY + 90);
 
             // preview
             var minX = 5, minY = 5, maxX = 0, maxY = 0;
