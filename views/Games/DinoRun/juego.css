@@ -241,4 +241,17 @@ body{
       /* Otros estilos de botón... */
     }
   }
-  
+  /* Media query para pantallas más pequeñas, por ejemplo, dispositivos móviles */
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column; /* Cambiar a una disposición de columna */
+    }
+    
+    .high-score-text {
+        margin-top: 20px; /* Añadir espacio entre el puntaje máximo y los botones */
+    }
+    
+    .game-over-controls {
+        margin-top: 20px; /* Añadir espacio entre los botones de reinicio y regreso */
+    }
+}

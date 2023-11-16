@@ -329,7 +329,7 @@ function RestartGame() {
   sueloY = 22;
   velY = 0;
   impulso = 900;
-  gravedad = 2000;
+  gravedad = 2800;
 
   dinoPosX = 42;
   dinoPosY = sueloY;
@@ -343,7 +343,7 @@ function RestartGame() {
   saltando = false;
 
   tiempoHastaObstaculo = 2;
-  tiempoObstaculoMin = 0.7;
+  tiempoObstaculoMin = 0.8;
   tiempoObstaculoMax = 1.8;
 
   obstaculos = []; // Vacía la lista de obstáculos
@@ -362,13 +362,8 @@ function RestartGame() {
   // Reinicia la animación y la lógica del juego
   Loop();
 }
-
-
 function GoBack() {
   window.location.href = '../../Rankings/DinoRun/index.php';
-
-  // Lógica para "Regresar"
-  // Por ejemplo, cambiar de pantalla o recargar la página
 }
 document.getElementById('btnRestart').addEventListener('touchend', function(event) {
   event.preventDefault(); // Prevenir el comportamiento predeterminado
