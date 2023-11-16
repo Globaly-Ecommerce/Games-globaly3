@@ -186,7 +186,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                             <input type="hidden" id="usuario_id" name="usuario_id" value=<?php echo $_SESSION['nombre_usuario'];?>>
                             <div class="input-group">
                                 <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Escribe un comentario">
-                                <button type="submit">Post</button>
+                                <button type="submit">Publicar</button>
                             </div>
                         </form>
                     </div>
@@ -196,7 +196,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     <h4>Comentarios de DinoRun</h4>
                         <?php foreach ($comentarios as $comentario): ?>
                             <div class="comment">
-                                <p><strong>User:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
+                                <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
                                 <p><?php echo htmlspecialchars($comentario['contenido']); ?></p>
                             </div>
                         <?php endforeach; ?>

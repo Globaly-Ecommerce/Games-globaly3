@@ -29,7 +29,7 @@ var highScore = 0;
 var sueloY = 22;
 var velY = 0;
 var impulso = 900;
-var gravedad = 2500;
+var gravedad = 2000;
 
 var dinoPosX = 42;
 var dinoPosY = sueloY;
@@ -153,7 +153,7 @@ function CrearObstaculo() {
   var obstaculo = document.createElement("div");
   contenedor.appendChild(obstaculo);
   obstaculo.classList.add("cactus");
-  if (Math.random() > 0.5) obstaculo.classList.add("cactus2");
+  if (Math.random() > 0.1) obstaculo.classList.add("cactus2");
   obstaculo.posX = contenedor.clientWidth;
   obstaculo.style.left = contenedor.clientWidth + "px";
 
@@ -208,10 +208,10 @@ function GanarPuntos() {
     gameVel = 1.2;
     contenedor.classList.add("mediodia");
   } else if (score == 10) {
-    gameVel = 2;
+    gameVel = 1.3;
     contenedor.classList.add("tarde");
   } else if (score == 20) {
-    gameVel = 2;
+    gameVel = 1.4;
     contenedor.classList.add("noche");
   }
   suelo.style.animationDuration = 3 / gameVel + "s";

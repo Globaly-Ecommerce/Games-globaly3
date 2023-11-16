@@ -21,7 +21,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     <div class="col-xl-5">
                         <ul class="navbar-nav mainmenu m-0">
                             <li class="menu-item-has-children">
-                                <a href="javascript:void(0);">Home</a>
+                                <a href="<?php echo $baseUrl; ?>index.php">Home</a>
                                 <ul class="submenu">
                                     <li><a href="<?php echo $baseUrl; ?>index.php">Home</a></li>
                                 </ul>

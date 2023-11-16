@@ -14,6 +14,8 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
 
 <head>
     <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         canvas {
             position: absolute;
@@ -22,6 +24,7 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
             width: 640px;
             height: 640px;
             margin: -320px 0 0 -320px;
+            
         }
         
     </style>
