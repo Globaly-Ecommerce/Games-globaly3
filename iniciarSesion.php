@@ -122,6 +122,9 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     <button class="cus-btn filled mb-32 w-100" type="submit">Iniciar Sesión</button>
                                     <h6>Iniciar sesión con <a href="<?php echo $client->createAuthUrl(); ?>signup.php" class="color-primary">Google</a></h6>
                                 </div>
+                                <div class="text-center mb-16">
+                                    <a href="<?php echo $baseUrl; ?>forgot_password.php" class="color-primary">¿Olvidaste tu contraseña?</a>
+                                </div>
                             </form>
                         </div>
                         <div class="text-center">
