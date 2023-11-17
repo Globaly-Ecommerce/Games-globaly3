@@ -4053,3 +4053,13 @@ header.st-2 .icon-arrow:hover {
 strong{
   color:#1877F2 ;
 }
+.xl-logo .navbar-brand {
+  padding: 0;
+  margin: 0; /* adjust as necessary */
+}
+.xl-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Make sure the div has height */
+}

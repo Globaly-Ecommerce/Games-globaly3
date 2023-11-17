@@ -29,7 +29,7 @@ var highScore = 0;
 var sueloY = 22;
 var velY = 0;
 var impulso = 900;
-var gravedad = 2000;
+var gravedad = 2800;
 
 var dinoPosX = 42;
 var dinoPosY = sueloY;
@@ -208,7 +208,7 @@ function GanarPuntos() {
     gameVel = 1.2;
     contenedor.classList.add("mediodia");
   } else if (score == 10) {
-    gameVel = 1.3;
+    gameVel = 1.2;
     contenedor.classList.add("tarde");
   } else if (score == 20) {
     gameVel = 1.4;

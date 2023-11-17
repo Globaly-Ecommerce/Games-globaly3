@@ -242,16 +242,23 @@ body{
     }
   }
   /* Media query para pantallas más pequeñas, por ejemplo, dispositivos móviles */
+/* Media query para pantallas más pequeñas, por ejemplo, dispositivos móviles */
 @media (max-width: 768px) {
     .contenedor {
-        flex-direction: column; /* Cambiar a una disposición de columna */
+        flex-direction: row; /* Cambiar a una disposición de fila */
     }
-    
+
     .high-score-text {
         margin-top: 20px; /* Añadir espacio entre el puntaje máximo y los botones */
+        margin-right: 20px; /* Añadir margen a la derecha para separarlos */
     }
-    
+
     .game-over-controls {
         margin-top: 20px; /* Añadir espacio entre los botones de reinicio y regreso */
+    }
+
+    #btnRestart,
+    #btnBack {
+        margin-right: 20px; /* Añadir margen a la derecha para separar los botones */
     }
 }
