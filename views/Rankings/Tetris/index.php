@@ -168,6 +168,8 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         </p>
 
                         <div class="comment-form mb-32">
+                        <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
+
                             <h4>Comentarios</h4>
                             <form id="comment-form">
                                 <input type="hidden" id="juego_id" name="juego_id" value="<?php echo $juego_id; ?>">
@@ -177,7 +179,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                 <div class="input-group">
                                     <input type="text" class="form-control p-0 border-0" name="comentario"
                                         id="comentario" required placeholder="Escribe un comentario">
-                                    <button type="submit">Post</button>
+                                    <button type="submit">Publicar</button>
                                 </div>
                             </form>
                         </div>
@@ -203,44 +205,33 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <script>
-                            $(document).ready(function () {
-                                $("#comment-form").submit(function (event) {
-                                    event.preventDefault();
-
-                                    var juego_id = 1;
-                                    var comentario = $("#comentario").val();
-                                    var usuario_id = $("#usuario_id").val();
-
-                                    // Validación: Asegúrate de que el comentario no esté vacío
-                                    if (comentario.trim() === '') {
-                                        alert("Por favor, escribe un comentario.");
-                                        return; // Detiene la ejecución si el comentario está vacío
+                        $(document).ready(function() {
+                            $("#comment-form").submit(function(event) {
+                                event.preventDefault();
+                                function mostrarMensajeExito() {
+                                        $("#mensaje-exito").fadeIn().delay(2000).fadeOut(); // Mostrar durante 2 segundos y luego ocultar
                                     }
+                                var juego_id = 1;
+                                var comentario = $("#comentario").val();
+                                var usuario_id = $("#usuario_id").val();
 
-                                    // Realiza una solicitud AJAX para enviar el comentario al servidor
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "../../../guardar_comentario.php", // Asegúrate de que la URL sea correcta
-                                        data: { juego_id: juego_id, comentario: comentario, usuario_id: usuario_id },
-                                        success: function (response) {
-                                            // Suponiendo que response contiene la información del comentario, incluida la fecha
-                                            var nuevoComentario = '<div class="comment">' +
-                                                '<p><strong>User:</strong> ' + usuario_id + '</p>' +
-                                                '<p>' + comentario + '</p>' +
-                                                '<p><small>Publicado el: ' + response.fecha + '</small></p>' +
-                                                '</div>';
+                                // Realiza una solicitud AJAX para enviar el comentario al servidor
+                                $.ajax({
+                                    type: "POST",
+                                    url: "<?php echo $baseUrl; ?>guardar_comentario.php", // Asegúrate de que la URL sea correcta
+                                    data: { juego_id: juego_id, comentario: comentario, usuario_id: usuario_id },
+                                    success: function(response) {
+                                        // Limpia el campo de comentario después de enviarlo
+                                        mostrarMensajeExito();
 
-                                            $('.existing-comments').append(nuevoComentario);
-                                            $("#comentario").val(''); // Limpia el campo de comentario
-                                        },
-                                        error: function (xhr, status, error) {
-                                            // Manejar el error
-                                            alert("Error al enviar el comentario: " + error);
-                                        }
-                                    });
+                                        $("#comentario").val("");
+                                        // Carga los comentarios nuevamente después de agregar uno nuevo
+                                        cargarComentarios();
+                                    }
                                 });
                             });
-                        </script>
+                        });
+                    </script>
 
 
                     </div>

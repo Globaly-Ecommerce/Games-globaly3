@@ -2283,6 +2283,10 @@ header.st-2 .icon-arrow:hover {
     height: auto;
   }
 } */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 .hero-banner-1 .item .content {
   position: absolute;
   bottom: 0;
