@@ -93,7 +93,8 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <ul>
                 <li class="has-children active">Home <span class="icon-arrow"></span>
                     <ul class="children">
-                        <li><a href="./index.php">Home</a></li>
+                        
+                        <li><a href="<?php echo $baseUrl; ?>index.php">Home</a></li>
 
                     </ul>
                 </li>
