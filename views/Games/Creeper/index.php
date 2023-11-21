@@ -19,9 +19,33 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style>
-@media screen and (orientation: landscape) {
-  /* Estilos específicos para orientación horizontal */
+@media screen and (max-width: 768px) {
+  /* Estilos específicos para dispositivos móviles */
+
+  /* Ajustar tamaños de fuente */
+  h1.title {
+    font-size: 36px; /* Cambiar el tamaño de fuente para dispositivos móviles */
+  }
+
+  /* Redefinir estilos para el botón de inicio */
+  #startButton {
+    font-size: 18px; /* Cambiar el tamaño de fuente para dispositivos móviles */
+    padding: 8px 16px; /* Ajustar el relleno */
+  }
+
+  /* Ajustar márgenes o espaciado entre elementos */
+  #touchControls button {
+    margin: 8px; /* Cambiar el margen entre los botones de control */
+  }
+
+  /* Estilos para el canvas en dispositivos móviles */
+  canvas {
+    width: 100%; /* Hacer que el canvas ocupe todo el ancho disponible */
+    height: auto; /* Ajustar automáticamente la altura */
+  }
 }
+
+
 
 
     body {
@@ -174,7 +198,8 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
           body: JSON.stringify(data),
         };
 
-        // Realizar la solicitud POST
+
+      // Realizar la solicitud POST
         fetch(url, requestOptions)
           .then((response) => {
             if (!response.ok) {
@@ -211,11 +236,34 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     const startButton = document.getElementById("startButton");
-    const creepAudio = document.getElementById("creepAudio");
-    canvas.addEventListener('touchstart', function(event) {
-  // Código para disparar la flecha
-  event.preventDefault(); // Esto evita el comportamiento por defecto del evento táctil, como el desplazamiento de la pantalla.
-}, false);
+    canvas.addEventListener("touchstart", handleTouchStart);
+canvas.addEventListener("touchmove", handleTouchMove);
+canvas.addEventListener("touchend", handleTouchEnd);
+
+let touchStartX = null;
+
+function handleTouchStart(event) {
+  if (event.touches.length === 1) {
+    touchStartX = event.touches[0].clientX;
+  }
+}
+
+function handleTouchMove(event) {
+  if (touchStartX !== null) {
+    const touchX = event.touches[0].clientX;
+    const deltaX = touchX - touchStartX;
+
+    if (deltaX > 10) {
+      moveRight(); // Llama a tu función de movimiento hacia la derecha
+    } else if (deltaX < -10) {
+      moveLeft(); // Llama a tu función de movimiento hacia la izquierda
+    }
+  }
+}
+
+function handleTouchEnd(event) {
+  touchStartX = null;
+}
 
 canvas.addEventListener('touchmove', function(event) {
   var touch = event.touches[0];
@@ -254,6 +302,7 @@ canvas.addEventListener('touchmove', function(event) {
       document.getElementById("gameOverScreen").style.display = "none";
       playCreepAudio();
     });
+    
 
     class Player {
       constructor(x, y, width, height) {
@@ -525,13 +574,19 @@ canvas.addEventListener('touchmove', function(event) {
     let gameOver = false;
     let gameWon = false;
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === " " && canShoot) {
-        isShooting = true;
-        shootArrow();
-        canShoot = false;
-      }
-    });
+document.addEventListener("keydown", (event) => {
+  switch (event.key) {
+    case "ArrowLeft":
+      moveLeft();
+      break;
+    case "ArrowRight":
+      moveRight();
+      break;
+    case " ":
+      shoot();
+      break;
+  }
+});
 
     document.addEventListener("keyup", (event) => {
       if (event.key === " ") {
@@ -767,13 +822,14 @@ enterFullscreen();
     }
 
     function shootArrow() {
-      if (canShoot) {
-        const arrowX = player.x + player.width / 2 - 2;
-        const arrowY = player.y;
-        arrows.push(new Arrow(arrowX, arrowY));
-        canShoot = false; // rapid shot? set to true to make multiple arrows
-      }
-    }
+  if (canShoot) {
+    const arrowX = player.x + player.width / 2 - 2;
+    const arrowY = player.y;
+    arrows.push(new Arrow(arrowX, arrowY));
+    canShoot = false;
+  }
+}
+
 
     function spawnCreeper() {
       const size = Math.random() * 40 + 20;
@@ -857,5 +913,4 @@ enterFullscreen();
     // enviarPuntuacion(tuPuntuacion);
   </script>
 </body>
-
 </html>
