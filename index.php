@@ -315,7 +315,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     <div class="copyright-text">
                         <div class="row">
                             <div class="col-lg-4 offset-lg-4">
-                                <p class="color-gray mb-lg-0 mb-32">All rights reserved by Globaly ©2023.</p>
+                                <p class="color-gray mb-lg-0 mb-32">Derechos Reservados Globaly ©2023.</p>
                             </div>
                             <div class="col-lg-4 text-lg-end text-center">
                                 <a href="" class="ps-0"><p class="color-gray">Privacy Policy</p></a>
