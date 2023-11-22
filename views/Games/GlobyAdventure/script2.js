@@ -82,7 +82,8 @@ function handleTap() {
     startGame();
     return;
   }
-  if (!gameOver) globy.velocity = -globy.jump * 0.50; // Si el juego no ha terminado, Globy salta
+  globy.velocity = -globy.jump * 0.5; // Valor más pequeño para un salto menos potente
+  // Si el juego no ha terminado, Globy salta
 }
 // Función que maneja la cuenta regresiva
 function handleCountdown() {
@@ -441,5 +442,23 @@ function showButton(buttonId) {
     button.classList.remove("hide");
   }
 }
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
+function resizeCanvas() {
+  if (isMobileDevice()) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      // Aquí puedes añadir más lógica para reajustar elementos del juego si es necesario
+  }
+}
+
+// Llama a resizeCanvas al cargar y cuando se redimensione la ventana solo si es un dispositivo móvil
+if (isMobileDevice()) {
+  window.onload = resizeCanvas;
+  window.onresize = resizeCanvas;
+}
+
 
 gameLoop();                                                // Inicia el bucle principal del juego.
