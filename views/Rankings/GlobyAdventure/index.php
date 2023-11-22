@@ -86,31 +86,16 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     <div class="content">
                                         <h2 class="color-white mb-8">Globy Adventure</h2>
                                         <p class="color-gray mb-32">En "Globy Adventure", te adentras en el vasto espacio exterior, guiando a Globy, a través de un peligroso campo de columnas de fuego A medida que viajas, el desafío aumenta, las columnas se vuelven más frecuentes y la velocidad del juego se acelera.</p>
-
                                         <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                            <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
+                                                <i class="far fa-play"></i> Jugar
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!DOCTYPE html>
-                    <html lang="es">
-
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>Tu Título de Página</title>
-                        <!-- Aquí puedes incluir enlaces a CSS, etc. -->
-                    </head>
-
-                    <body>
-
-                        <!-- Resto del contenido de tu página -->
-
                         <div class="col-xl-3 offset-xl-1">
                             <div class="about-list">
                                 <h3 class="color-white mb-16">Ranking</h3>
@@ -130,16 +115,10 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                 </ul>
                             </div>
                         </div>
-                    </body>
-
-                    </html>
-               <!-- Resto del contenido de tu página -->
-</body>
-</html>
-<div class="raiting-list st-2">
-    <ul class="unstyled">
-    </ul>
-</div>
+                    <div class="raiting-list st-2">
+                            <ul class="unstyled">
+                            </ul>
+                    </div>
 </div>
 </section>
 <!-- Anime detail Area end -->
@@ -172,8 +151,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     </div>
                                 </form>
                             </div>
-
-
                         <!-- Aquí comienza la sección de mostrar comentarios -->
                         <div class="existing-comments">
                         <h4>Comentarios de Globy Adventure</h4>
@@ -203,7 +180,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                     }
                                 });
                             }
-
                             // Carga los comentarios existentes cuando la página se carga inicialmente
                             cargarComentarios();
 
@@ -234,8 +210,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                             });
                         });
                     </script>
-
-
                     </div>
                     <!-- Main Content End -->
 

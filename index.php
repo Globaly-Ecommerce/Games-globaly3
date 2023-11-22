@@ -68,7 +68,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active">
                     <img src="./assets/media/videos/TETRIS.jpg" class="slider-image" alt="">
                     <div class="content">
-                        <a href="Tetris.html"><h2 class="color-white mb-32">Tetris</h2></a>
+                        <a><h2 class="color-white mb-32">Tetris</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                          
@@ -87,7 +87,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active">
                     <img src="./assets/media/videos/red vs blue.jpg" class="slider-image" alt="">
                     <div class="content">
-                        <a href="red vs blue.html"><h2 class="color-white mb-32">Red vs blue</h2></a>
+                        <a><h2 class="color-white mb-32">Red vs blue</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
@@ -105,7 +105,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active">
                     <img src="./assets/media/videos/globy villano.png" class="slider-image" alt="">
                     <div class="content">
-                        <a href="Creeper.html"><h2 class="color-white mb-32">Creeper Annihilator</h2></a>
+                        <a><h2 class="color-white mb-32">Creeper Annihilator</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                            
@@ -124,7 +124,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active active">
                     <img src="assets/media/videos/dino ori.PNG" class="slider-image" alt="">
                     <div class="content">
-                        <a href="juego/globy.html"><h2 class="color-white mb-32">Dino Run</h2></a>
+                        <a><h2 class="color-white mb-32">Dino Run</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
@@ -141,7 +141,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active">
                     <img src="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/portada.png" class="slider-image" alt="">
                     <div class="content">
-                        <a href="anime-detail.html"><h2 class="color-white mb-32">Globy Adventure</h2></a>
+                        <a><h2 class="color-white mb-32">Globy Adventure</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
@@ -332,7 +332,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <!-- modal-popup area end  -->
 
         </div>
-            <!-- Jquery Js -->
+            <!-- Jquery Js -->   
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery-3.6.3.min.js"></script>
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/bootstrap.min.js"></script>
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery.countdown.min.js"></script>

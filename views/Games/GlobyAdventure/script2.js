@@ -109,6 +109,7 @@ function startGame() {
 
 // Función para reiniciar el juego
 function resetGame() {
+  hideButton('btnBack');
   btnGameOver.classList.add("hide"); 
 
   countdown = 3;
