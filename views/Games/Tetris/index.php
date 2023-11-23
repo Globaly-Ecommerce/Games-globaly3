@@ -1,4 +1,4 @@
-<!-- <?php
+ <?php
 session_start();
 include '../../../DAL/conn.php'; // Asegúrate de que la ruta sea correcta
 
@@ -8,7 +8,7 @@ $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Verifica si $userScore es un array antes de intentar mostrar la puntuación.
 $highScore = $userScore ? $userScore['highscore'] : '0';
-?>  -->
+?>  
 
 <html lang='en'>
 

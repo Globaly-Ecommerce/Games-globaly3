@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 include '../../../DAL/conn.php'; // Asegúrate de que la ruta sea correcta
 
@@ -8,46 +8,15 @@ $userScore = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Verifica si $userScore es un array antes de intentar mostrar la puntuación.
 $highScore = $userScore ? $userScore['highscore'] : '0';
-?>
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
-<div id="touchControls">
-            <button id="moveLeftButton">Mover Izquierda</button>
-            <button id="moveRightButton">Mover Derecha</button>
-            <button id="shootButton">Disparar</button>
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-@media screen and (max-width: 768px) {
-  /* Estilos específicos para dispositivos móviles */
-
-  /* Ajustar tamaños de fuente */
-  h1.title {
-    font-size: 36px; /* Cambiar el tamaño de fuente para dispositivos móviles */
-  }
-
-  /* Redefinir estilos para el botón de inicio */
-  #startButton {
-    font-size: 18px; /* Cambiar el tamaño de fuente para dispositivos móviles */
-    padding: 8px 16px; /* Ajustar el relleno */
-  }
-
-  /* Ajustar márgenes o espaciado entre elementos */
-  #touchControls button {
-    margin: 8px; /* Cambiar el margen entre los botones de control */
-  }
-
-  /* Estilos para el canvas en dispositivos móviles */
-  canvas {
-    width: 100%; /* Hacer que el canvas ocupe todo el ancho disponible */
-    height: auto; /* Ajustar automáticamente la altura */
-  }
-}
-
-
-
-
     body {
       margin: 0;
       display: flex;
@@ -214,8 +183,7 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
           body: JSON.stringify(data),
         };
 
-
-      // Realizar la solicitud POST
+        // Realizar la solicitud POST
         fetch(url, requestOptions)
           .then((response) => {
             if (!response.ok) {
@@ -247,47 +215,11 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
 
     // ... Resto de tu script de juego ...
 
-
     let highScore = 0;
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     const startButton = document.getElementById("startButton");
-    canvas.addEventListener("touchstart", handleTouchStart);
-canvas.addEventListener("touchmove", handleTouchMove);
-canvas.addEventListener("touchend", handleTouchEnd);
-
-let touchStartX = null;
-
-function handleTouchStart(event) {
-  if (event.touches.length === 1) {
-    touchStartX = event.touches[0].clientX;
-  }
-}
-
-function handleTouchMove(event) {
-  if (touchStartX !== null) {
-    const touchX = event.touches[0].clientX;
-    const deltaX = touchX - touchStartX;
-
-    if (deltaX > 10) {
-      moveRight(); // Llama a tu función de movimiento hacia la derecha
-    } else if (deltaX < -10) {
-      moveLeft(); // Llama a tu función de movimiento hacia la izquierda
-    }
-  }
-}
-
-function handleTouchEnd(event) {
-  touchStartX = null;
-}
-
-canvas.addEventListener('touchmove', function(event) {
-  var touch = event.touches[0];
-  var touchX = touch.clientX; // Obtén la posición X del toque
-  // Actualiza la posición del disparador aquí, usando touchX
-  event.preventDefault();
-}, false);
-
+    const creepAudio = document.getElementById("creepAudio");
 
     function playCreepAudio() {
       creepAudio.volume = 0.5;
@@ -318,7 +250,6 @@ canvas.addEventListener('touchmove', function(event) {
       document.getElementById("gameOverScreen").style.display = "none";
       playCreepAudio();
     });
-    
 
     class Player {
       constructor(x, y, width, height) {
@@ -590,19 +521,13 @@ canvas.addEventListener('touchmove', function(event) {
     let gameOver = false;
     let gameWon = false;
 
-document.addEventListener("keydown", (event) => {
-  switch (event.key) {
-    case "ArrowLeft":
-      moveLeft();
-      break;
-    case "ArrowRight":
-      moveRight();
-      break;
-    case " ":
-      shoot();
-      break;
-  }
-});
+    document.addEventListener("keydown", (event) => {
+      if (event.key === " " && canShoot) {
+        isShooting = true;
+        shootArrow();
+        canShoot = false;
+      }
+    });
 
     document.addEventListener("keyup", (event) => {
       if (event.key === " ") {
@@ -691,21 +616,6 @@ document.addEventListener("keydown", (event) => {
         ctx.restore();
       }
     }
-// Habilitar el modo de pantalla completa
-function enterFullscreen() {
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.mozRequestFullScreen) {
-    document.documentElement.mozRequestFullScreen();
-  } else if (document.documentElement.webkitRequestFullscreen) {
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.msRequestFullscreen) {
-    document.documentElement.msRequestFullscreen();
-  }
-}
-
-// Llamar a la función cuando se inicie el juego
-enterFullscreen();
 
     function checkCollisions() {
       creepers.forEach((creeper, creeperIndex) => {
@@ -838,14 +748,13 @@ enterFullscreen();
     }
 
     function shootArrow() {
-  if (canShoot) {
-    const arrowX = player.x + player.width / 2 - 2;
-    const arrowY = player.y;
-    arrows.push(new Arrow(arrowX, arrowY));
-    canShoot = false;
-  }
-}
-
+      if (canShoot) {
+        const arrowX = player.x + player.width / 2 - 2;
+        const arrowY = player.y;
+        arrows.push(new Arrow(arrowX, arrowY));
+        canShoot = false; // rapid shot? set to true to make multiple arrows
+      }
+    }
 
     function spawnCreeper() {
       const size = Math.random() * 40 + 20;
@@ -941,19 +850,41 @@ document.addEventListener("touchend", preventDefaultTouchActions, { passive: fal
 document.addEventListener("touchcancel", preventDefaultTouchActions, { passive: false });
 
 document.addEventListener("touchstart", (event) => {
-  if (!shootingInterval) {
-    shootArrow();
+  // Ignorar el evento si se origina en el botón de inicio
+  if (event.target === startButton) {
+    return;
+  }
+
+  const touchX = event.touches[0].clientX;
+  const canvasRect = canvas.getBoundingClientRect();
+  const midPoint = canvasRect.left + canvasRect.width / 2;
+
+  if (touchX < midPoint) {
+    // Tocar a la izquierda, mueve el personaje a la izquierda
+    movePlayerLeft();
+  } else {
+    // Tocar a la derecha, mueve el personaje a la derecha
+    movePlayerRight();
   }
 });
+
+function movePlayerLeft() {
+  // Mueve el personaje a la izquierda
+  player.x -= 10; // Ajusta este valor según sea necesario
+  if (player.x < 0) player.x = 0; // Evita que el personaje salga del canvas
+}
+
+function movePlayerRight() {
+  // Mueve el personaje a la derecha
+  player.x += 10; // Ajusta este valor según sea necesario
+  if (player.x + player.width > canvas.width) {
+    player.x = canvas.width - player.width; // Evita que el personaje salga del canvas
+  }
+}
+
 startButton.addEventListener("touchstart", (event) => {
-  event.preventDefault(); // Para evitar el scroll y zoom en dispositivos móviles
-  startButton.click(); // Dispara el evento click del botón
-});
-
-
-document.addEventListener("touchend", (event) => {
-  clearInterval(shootingInterval);
-  shootingInterval = null;
+  event.preventDefault(); // Para evitar comportamientos predeterminados
+  startButton.click(); // Activa el evento click del botón
 });
 
 function shootArrow() {
@@ -987,4 +918,5 @@ canvas.addEventListener("touchmove", (event) => {
 
   </script>
 </body>
+
 </html>
