@@ -108,6 +108,22 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
       transform: translateY(-0%);
       transform: translateX(-50%);
     }
+    /* Estilos para pantallas de tamaño mediano (tablets) */
+@media screen and (max-width: 768px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Estilos para pantallas pequeñas (teléfonos móviles) */
+@media screen and (max-width: 480px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
   </style>
   <title>Creep Annihilator</title>
 </head>
@@ -818,8 +834,66 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
       document.getElementById("gameOverScreen").style.display = "block";
     };
 
-    // En algún punto de tu lógica de juego, cuando quieras guardar la puntuación:
-    // enviarPuntuacion(tuPuntuacion);
+
+
+let shootingInterval;
+function preventDefaultTouchActions(event) {
+  if (event.touches.length > 1 || (event.type === "touchend" && event.touches.length > 0)) {
+    return; // Permitir gestos multitoque para zoom y otros controles
+  }
+  event.preventDefault();
+}
+
+document.addEventListener("touchstart", preventDefaultTouchActions, { passive: false });
+document.addEventListener("touchmove", preventDefaultTouchActions, { passive: false });
+document.addEventListener("touchend", preventDefaultTouchActions, { passive: false });
+document.addEventListener("touchcancel", preventDefaultTouchActions, { passive: false });
+
+document.addEventListener("touchstart", (event) => {
+  if (!shootingInterval) {
+    shootArrow();
+  }
+});
+startButton.addEventListener("touchstart", (event) => {
+  event.preventDefault(); // Para evitar el scroll y zoom en dispositivos móviles
+  startButton.click(); // Dispara el evento click del botón
+});
+
+
+document.addEventListener("touchend", (event) => {
+  clearInterval(shootingInterval);
+  shootingInterval = null;
+});
+
+function shootArrow() {
+  if (canShoot) {
+    const arrowX = player.x + player.width / 2 - 2;
+    const arrowY = player.y;
+    arrows.push(new Arrow(arrowX, arrowY));
+    // Restablecer canShoot inmediatamente para permitir disparos rápidos
+    canShoot = true;
+  }
+}
+canvas.addEventListener("touchmove", (event) => {
+  event.preventDefault(); // Prevenir comportamientos predeterminados como el desplazamiento de la página
+
+  const touch = event.touches[0];
+  let newX = touch.clientX - canvas.getBoundingClientRect().left - player.width / 2;
+
+  // Restringir el movimiento dentro de los límites del canvas
+  const maxRight = canvas.width - player.width;
+  if (newX < 0) {
+    newX = 0;
+  } else if (newX > canvas.width - player.width) {
+    newX = canvas.width - player.width;
+  }
+
+  player.x = newX; // Actualiza la posición del jugador
+});
+
+
+
+
   </script>
 </body>
 
