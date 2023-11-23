@@ -82,7 +82,8 @@ function handleTap() {
     startGame();
     return;
   }
-  if (!gameOver) globy.velocity = -globy.jump * 0.50; // Si el juego no ha terminado, Globy salta
+  globy.velocity = -globy.jump * 0.5; // Valor más pequeño para un salto menos potente
+  // Si el juego no ha terminado, Globy salta
 }
 // Función que maneja la cuenta regresiva
 function handleCountdown() {
@@ -100,6 +101,7 @@ function handleCountdown() {
 // Función para iniciar el juego
 function startGame() {
   if (!gameStarted) {
+    hideButton('btnBack'); 
     gameStarted = true;
     btnGameOver.classList.add("hide"); 
     resetGame();
@@ -108,6 +110,7 @@ function startGame() {
 
 // Función para reiniciar el juego
 function resetGame() {
+  hideButton('btnBack');
   btnGameOver.classList.add("hide"); 
 
   countdown = 3;
@@ -296,8 +299,7 @@ function displayHighScore() {
  
 }
 function enviarPuntuacion(puntaje) {
-  console.log("Enviar puntuacion!!!");
-  console.log("EJ SCORE ES. " + score)
+
   // Datos que deseas enviar en la solicitud POST
   const data = {
     juego_id: "5",
@@ -329,9 +331,9 @@ function enviarPuntuacion(puntaje) {
 }
 // Función para mostrar el mensaje de Game Over y la puntuación
 function displayGameOver() {
+  showButton('btnBack');
   const highScore = document.querySelector(".high-score").textContent;
   if (score > highScore) {
-    console.log("Nuevo highscore!")
     enviarPuntuacion(score)
   }
 
@@ -409,6 +411,54 @@ if (mobileDevice) {
     const pipeGap = 250;
 }
 
+function GoBack() {
+  window.location.href = '../../Rankings/GlobyAdventure/index.php';
+
+  // Lógica para "Regresar"
+  // Por ejemplo, cambiar de pantalla o recargar la página
+}
+// Manejador para clics con el mouse
+document.getElementById('btnBack').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado si es necesario
+  GoBack();
+});
+
+// Manejador para toques en pantalla táctil
+document.getElementById('btnBack').addEventListener('touchend', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado
+  GoBack();
+});
+
+function hideButton(buttonId) {
+  const button = document.getElementById(buttonId);
+  if (button) {
+    button.classList.add("hide");
+  }
+}
+
+function showButton(buttonId) {
+  const button = document.getElementById(buttonId);
+  if (button) {
+    button.classList.remove("hide");
+  }
+}
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
+function resizeCanvas() {
+  if (isMobileDevice()) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      // Aquí puedes añadir más lógica para reajustar elementos del juego si es necesario
+  }
+}
+
+// Llama a resizeCanvas al cargar y cuando se redimensione la ventana solo si es un dispositivo móvil
+if (isMobileDevice()) {
+  window.onload = resizeCanvas;
+  window.onresize = resizeCanvas;
+}
 
 
 gameLoop();                                                // Inicia el bucle principal del juego.

@@ -8,7 +8,6 @@ if (isset($_SESSION['nombre_usuario'])) {
     // Si el usuario no está autenticado, puedes asignar un valor por defecto o realizar una acción de manejo de error.
     $nombreUsuario = "Invitado"; // Ejemplo de un valor por defecto
 }
-
 $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 ?>
 

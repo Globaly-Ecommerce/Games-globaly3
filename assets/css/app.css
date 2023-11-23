@@ -2004,7 +2004,7 @@ header.st-2 .hamburger-menu {
 header.st-2 .hamburger-menu .bar {
   position: relative;
   transform: translateY(10px);
-  background: #58DDA3;
+  background: #ffffff;
   transition: all 0ms 300ms;
   width: 30px;
   height: 3px;
@@ -2018,7 +2018,7 @@ header.st-2 .hamburger-menu .bar:before {
   position: absolute;
   left: 0;
   bottom: 10px;
-  background: #58DDA3;
+  background: #254E8C;
   transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 header.st-2 .hamburger-menu .bar:after {
@@ -2029,7 +2029,7 @@ header.st-2 .hamburger-menu .bar:after {
   position: absolute;
   left: 0;
   top: 10px;
-  background: #58DDA3;
+  background: #254E8C;
   transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 header.st-2 .hamburger-menu .bar.animate {
@@ -2071,10 +2071,10 @@ header.st-2 .mobile-navar ul li a {
   color: #F8F8FF;
 }
 header.st-2 .mobile-navar ul li a.active {
-  color: #58DDA3;
+  color: #254E8C;
 }
 header.st-2 .mobile-navar ul li a:hover {
-  color: #58DDA3;
+  color: #254E8C;
 }
 header.st-2 .mobile-navar {
   top: 93px;
@@ -2082,7 +2082,7 @@ header.st-2 .mobile-navar {
   right: -300%;
   width: 100%;
   background: #1B1B1B;
-  box-shadow: 0px 0px 5px 1px rgba(88, 221, 163, 0.2);
+  box-shadow: 0px 0px 5px 1px rgba(88, 97, 221, 0.2);
   color: #F8F8FF;
   height: 100%;
   padding-bottom: 20px;
@@ -2106,7 +2106,7 @@ header.st-2 .mobile-navar.active {
   transition: all 500ms ease-in-out;
 }
 header.st-2 .has-children.active {
-  color: #58DDA3;
+  color: #254E8C;
 }
 header.st-2 .has-children:hover {
   cursor: pointer;
@@ -2125,7 +2125,7 @@ header.st-2 .icon-arrow {
   position: absolute;
   display: block;
   font-size: 0.7em;
-  color: #58DDA3;
+  color: #254E8C;
   top: 5px;
   right: 10px;
   transform: rotate(0deg);
@@ -2278,11 +2278,15 @@ header.st-2 .icon-arrow:hover {
   object-position: center;
   height: 100%;
 }
-@media (max-width: 575px) {
+/* @media (max-width: 575px) {
   .hero-banner-1 .item .slider-image {
     height: auto;
   }
+} */
+*, *:before, *:after {
+  box-sizing: border-box;
 }
+
 .hero-banner-1 .item .content {
   position: absolute;
   bottom: 0;
@@ -3249,6 +3253,7 @@ header.st-2 .icon-arrow:hover {
   .modal .modal-dialog {
     max-width: 80%;
   }
+  
 }
 @media (max-width: 575px) {
   .modal .modal-dialog {
@@ -4049,3 +4054,16 @@ header.st-2 .icon-arrow:hover {
 }
 
 /*# sourceMappingURL=app.css.map */
+strong{
+  color:#1877F2 ;
+}
+.xl-logo .navbar-brand {
+  padding: 0;
+  margin: 0; /* adjust as necessary */
+}
+.xl-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Make sure the div has height */
+}

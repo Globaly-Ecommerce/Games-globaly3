@@ -176,26 +176,27 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="comments mb-64 mb-xl-0">
-                                    <h3 class="color-white mb-8">Comments</h3>
-                                    <p class="color-gray mb-32 link-text">We hope you have a good time browsing the comment section! <br> Please read our <b class="color-primary">Comments Policy </b>before commenting.</p>
+                                    <h3 class="color-white mb-8">Comentarios</h3>
+                                    <p class="color-gray mb-32 link-text">Favor escribe un comentario  <b class="color-primary">Comments Policy </b></p>
                                     <div class="comment-form mb-32">
-                        <h4>Comments</h4>
+                                    <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
+
                         <form id="comment-form">
                             <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
                             <input type="hidden" id="usuario_id" name="usuario_id" value=<?php echo $_SESSION['nombre_usuario'];?>>
                             <div class="input-group">
-                                <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Write your comment">
-                                <button type="submit">Post</button>
+                                <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Escribe un comentario">
+                                <button type="submit">Publicar</button>
                             </div>
                         </form>
                     </div>
 
                     <!-- Aquí comienza la sección de mostrar comentarios -->
                     <div class="existing-comments">
-                        <h4>Existing Comments</h4>
+                    <h4>Comentarios de DinoRun</h4>
                         <?php foreach ($comentarios as $comentario): ?>
                             <div class="comment">
-                                <p><strong>User:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
+                                <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
                                 <p><?php echo htmlspecialchars($comentario['contenido']); ?></p>
                             </div>
                         <?php endforeach; ?>
@@ -207,7 +208,9 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         $(document).ready(function() {
                             $("#comment-form").submit(function(event) {
                                 event.preventDefault();
-                        
+                                function mostrarMensajeExito() {
+                                        $("#mensaje-exito").fadeIn().delay(2000).fadeOut(); // Mostrar durante 2 segundos y luego ocultar
+                                    }
                                 var juego_id = 4;
                                 var comentario = $("#comentario").val();
                                 var usuario_id = $("#usuario_id").val();
@@ -216,8 +219,14 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                 $.ajax({
                                     type: "POST",
                                     url: "<?php echo $baseUrl; ?>guardar_comentario.php", // Asegúrate de que la URL sea correcta
-                                    data: { juego_id: juego_id, comentario: comentario, usuario_id : usuario_id },
+                                    data: { juego_id: juego_id, comentario: comentario, usuario_id: usuario_id },
                                     success: function(response) {
+                                        // Limpia el campo de comentario después de enviarlo
+                                        mostrarMensajeExito();
+
+                                        $("#comentario").val("");
+                                        // Carga los comentarios nuevamente después de agregar uno nuevo
+                                        cargarComentarios();
                                     }
                                 });
                             });
@@ -239,7 +248,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="copyright-text">
                     <div class="row">
                         <div class="col-lg-4 offset-lg-4">
-                            <p class="color-gray mb-lg-0 mb-32">All rights reserved by Visual ©2023.</p>
+                            <p class="color-gray mb-lg-0 mb-32">Derechos reservados Globaly ©2023.</p>
                         </div>
                         <div class="col-lg-4 text-lg-end text-center">
                             <a href="" class="ps-0">

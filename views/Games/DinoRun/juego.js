@@ -29,7 +29,7 @@ var highScore = 0;
 var sueloY = 22;
 var velY = 0;
 var impulso = 900;
-var gravedad = 2500;
+var gravedad = 2900;
 
 var dinoPosX = 42;
 var dinoPosY = sueloY;
@@ -85,18 +85,26 @@ function Update() {
 
   velY -= gravedad * deltaTime;
 }
-
-function HandleKeyDown(ev) {
-  if (ev.keyCode == 32) {
-    Saltar();
-  }
-}
-
 function Saltar() {
+  if (dinoPosY === sueloY && !saltando) {
+    saltando = true;
+    velY = impulso; // Aumenta este valor para un salto más alto
+    dino.classList.remove("dino-corriendo");
+  }
   if (dinoPosY === sueloY) {
     saltando = true;
     velY = impulso;
     dino.classList.remove("dino-corriendo");
+  }
+}
+document.addEventListener("touchend", function(event) {
+  event.preventDefault(); // Evita el comportamiento predeterminado del toque (por ejemplo, hacer zoom en la página)
+  Saltar(); // Llama a la función de salto cuando se toca en cualquier parte de la pantalla
+});
+function HandleKeyDown(ev) {
+  
+  if (ev.keyCode == 32) {
+    Saltar();
   }
 }
 
@@ -150,7 +158,7 @@ function CrearObstaculo() {
   var obstaculo = document.createElement("div");
   contenedor.appendChild(obstaculo);
   obstaculo.classList.add("cactus");
-  if (Math.random() > 0.5) obstaculo.classList.add("cactus2");
+  if (Math.random() > 0.1) obstaculo.classList.add("cactus2");
   obstaculo.posX = contenedor.clientWidth;
   obstaculo.style.left = contenedor.clientWidth + "px";
 
@@ -202,32 +210,29 @@ function GanarPuntos() {
   score++;
   textoScore.innerText = score;
   if (score == 5) {
-    gameVel = 1.5;
+    gameVel = 1.2;
     contenedor.classList.add("mediodia");
   } else if (score == 10) {
-    gameVel = 2;
+    gameVel = 1.2;
     contenedor.classList.add("tarde");
   } else if (score == 20) {
-    gameVel = 3;
+    gameVel = 1.4;
     contenedor.classList.add("noche");
   }
   suelo.style.animationDuration = 3 / gameVel + "s";
 }
 
 function UpdateAndSaveHighScore() {
-  console.log(score, highScore);
   if (score > highScore) {
     highScore = score;
     document.querySelector(".high-score-val").innerText = highScore;
     console.log("enviando puntaje...");
     enviarPuntuacion(highScore);
   } else {
-    console.log("El score no es mayor al high score")
   }
 }
 
 function enviarPuntuacion(puntaje) {
-  console.log("Enviar puntuacion!!!");
   // Datos que deseas enviar en la solicitud POST
   const data = {
     juego_id: "4",
@@ -265,7 +270,6 @@ function enviarPuntuacion(puntaje) {
 }
 
 function GameOver() {
-  console.log("juego finalizado");
   Estrellarse();
   UpdateAndSaveHighScore(); // Aquí actualizas y guardas el high score
   gameOver.style.display = "block";
@@ -305,3 +309,76 @@ function IsCollision(
     aRect.left + paddingLeft > bRect.left + bRect.width
   );
 }
+function GameOver() {
+  // ... resto del código de GameOver ...
+  Estrellarse();
+  UpdateAndSaveHighScore();
+  gameOver.style.display = "block";
+  document.querySelector('.game-over-controls').style.display = 'block';
+  parado = true; // Detiene el juego
+}
+
+document.getElementById('btnRestart').addEventListener('click', function() {
+  // Reiniciar el juego
+  RestartGame();
+});
+
+document.getElementById('btnBack').addEventListener('click', function() {
+  // Lógica para "Regresar", como volver al menú principal
+  GoBack();
+});
+function RestartGame() {
+  // Restablece todas las variables del juego a sus estados iniciales
+  deltaTime = 0;
+
+  sueloY = 22;
+  velY = 0;
+  impulso = 900;
+  gravedad = 2800;
+
+  dinoPosX = 42;
+  dinoPosY = sueloY;
+
+  sueloX = 0;
+  velEscenario = 1280 / 3;
+  gameVel = 1;
+  score = 0;
+
+  parado = false;
+  saltando = false;
+
+  tiempoHastaObstaculo = 2;
+  tiempoObstaculoMin = 0.8;
+  tiempoObstaculoMax = 1.8;
+
+  obstaculos = []; // Vacía la lista de obstáculos
+  nubes = []; // Vacía la lista de nubes
+
+  // Reiniciar los elementos del DOM si es necesario
+  gameOver.style.display = "none";
+  document.querySelector('.game-over-controls').style.display = 'none';
+  dino.classList.remove("dino-estrellado");
+  dino.classList.add("dino-corriendo");
+
+  // Elimina todos los obstáculos y nubes del DOM
+  document.querySelectorAll('.cactus').forEach(el => el.remove());
+  document.querySelectorAll('.nube').forEach(el => el.remove());
+
+  // Reinicia la animación y la lógica del juego
+  Loop();
+}
+function GoBack() {
+  window.location.href = '../../Rankings/DinoRun/index.php';
+}
+document.getElementById('btnRestart').addEventListener('touchend', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado
+  RestartGame();
+});
+
+document.getElementById('btnBack').addEventListener('touchend', function(event) {
+  event.preventDefault(); // Prevenir el comportamiento predeterminado
+  GoBack();
+});
+window.onload = function() {
+  openFullscreen();
+};

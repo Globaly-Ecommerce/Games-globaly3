@@ -13,7 +13,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
         <div class="d-xl-block d-none">
             <nav class="navbar navbar-expand-xl p-0">
                 <a class="navbar-brand dark-logo d-xl-none" href="index.php"><img alt="Logo Globaly"
-                        src="<?php echo $baseUrl; ?>assets/media/videos/logo.png"></a>
+                        src="<?php echo $baseUrl; ?>assets/media/videos/logomobile.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -21,7 +21,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     <div class="col-xl-5">
                         <ul class="navbar-nav mainmenu m-0">
                             <li class="menu-item-has-children">
-                                <a href="javascript:void(0);">Home</a>
+                                <a href="<?php echo $baseUrl; ?>index.php">Home</a>
                                 <ul class="submenu">
                                     <li><a href="<?php echo $baseUrl; ?>index.php">Home</a></li>
                                 </ul>
@@ -42,9 +42,10 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                         </ul>
                     </div>
-                    <div class="col-xl-2 text-center xl-logo">
-                        <a class="navbar-brand m-0 p-0" href="<?php echo $baseUrl; ?>index.php"><img alt=""
-                                src="<?php echo $baseUrl; ?>assets/media/videos/logo.png"></a>
+                    <div class="col-xl-2 d-flex justify-content-center align-items-center xl-logo">
+                        <a class="navbar-brand m-0 p-0" href="<?php echo $baseUrl; ?>index.php">
+                            <img alt="" src="<?php echo $baseUrl; ?>assets/media/videos/logo.png" >
+                        </a>
                     </div>
                     <div class="col-xl-5 text-end">
                         <ul class="right-nav navbar-nav mainmenu align-items-center justify-content-end m-0">
@@ -92,7 +93,8 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <ul>
                 <li class="has-children active">Home <span class="icon-arrow"></span>
                     <ul class="children">
-                        <li><a href="./index.php">Home</a></li>
+                        
+                        <li><a href="<?php echo $baseUrl; ?>index.php">Home</a></li>
 
                     </ul>
                 </li>

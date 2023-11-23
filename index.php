@@ -69,10 +69,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
             <!-- Hero Area start -->
             <section class="hero-banner-1 variable-width">   
-                <div class="item sm-active sm-dnone">
+                <div class="item sm-active">
                     <img src="./assets/media/videos/TETRIS.jpg" class="slider-image" alt="">
                     <div class="content">
-                        <a href="Tetris.html"><h2 class="color-white mb-32">Tetris</h2></a>
+                        <a><h2 class="color-white mb-32">Tetris</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                          
@@ -80,36 +80,36 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                         <div>
                         <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+                                    <i class="far fa-play"></i> Jugar
+                                </a>
+                            <?php endif; ?>
                             <a href="<?php echo $baseUrl; ?>views/Rankings/Tetris/" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
                 </div>
-                <div class="item sm-active sm-dnone">
+                <div class="item sm-active">
                     <img src="./assets/media/videos/red vs blue.jpg" class="slider-image" alt="">
                     <div class="content">
-                        <a href="red vs blue.html"><h2 class="color-white mb-32">Red vs blue</h2></a>
+                        <a><h2 class="color-white mb-32">Red vs blue</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
 
                     <div>
                     <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                            <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue/" class="cus-btn filled">
+                                <i class="far fa-play"></i> Jugar
+                            </a>
+                        <?php endif; ?>
                         <a href="<?php echo $baseUrl; ?>views/Rankings/RedVsBlue" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                     </div>
                     </div>
                 </div>
-                <div class="item sm-active sm-dnone">
+                <div class="item sm-active">
                     <img src="./assets/media/videos/globy villano.png" class="slider-image" alt="">
                     <div class="content">
-                        <a href="Creeper.html"><h2 class="color-white mb-32">Creeper Annihilator</h2></a>
+                        <a><h2 class="color-white mb-32">Creeper Annihilator</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                            
@@ -117,10 +117,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                        
                         <div>
                         <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Creeper/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                            <a href="<?php echo $baseUrl; ?>views/Games/Creeper/" class="cus-btn filled">
+                                <i class="far fa-play"></i> Jugar
+                            </a>
+                        <?php endif; ?>
                             <a href="<?php echo $baseUrl; ?>views/Rankings/Creeper" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -128,16 +128,16 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active active">
                     <img src="assets/media/videos/dino ori.PNG" class="slider-image" alt="">
                     <div class="content">
-                        <a href="juego/globy.html"><h2 class="color-white mb-32">Dino Run</h2></a>
+                        <a><h2 class="color-white mb-32">Dino Run</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
                         <div>
                         <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/DinoRun/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                <a href="<?php echo $baseUrl; ?>views/Games/DinoRun/" class="cus-btn filled">
+                                    <i class="far fa-play"></i> Jugar
+                                </a>
+                            <?php endif; ?>
                             <a href="<?php echo $baseUrl; ?>views/Rankings/DinoRun/" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="item sm-active">
                     <img src="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/portada.png" class="slider-image" alt="">
                     <div class="content">
-                        <a href="anime-detail.html"><h2 class="color-white mb-32">Globy Adventure</h2></a>
+                        <a><h2 class="color-white mb-32">Globy Adventure</h2></a>
                         <ul class="card-tag unstyled">
                             <li><h5 class="color-primary">Nuevo</h5></li>
                         </ul>
@@ -154,10 +154,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         </div>
                         <div>
                         <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                    <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
+                                        <i class="far fa-play"></i> Jugar
+                                    </a>
+                                <?php endif; ?>
                         <a href="<?php echo $baseUrl; ?>views/Rankings/GlobyAdventure/" class="cus-btn bordered ms-16"><i class="fal fa-info-circle"></i> Ranking</a>
                         </div>
                     </div>
@@ -190,10 +190,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
                                                     <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                                        <a href="<?php echo $baseUrl; ?>views/Games/Tetris/" class="cus-btn filled">
+                                                            <i class="far fa-play"></i> Jugar
+                                                        </a>
+                                                    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,10 +215,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
                                                     <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                                        <a href="<?php echo $baseUrl; ?>views/Games/RedVsBlue/" class="cus-btn filled">
+                                                            <i class="far fa-play"></i> Jugar
+                                                        </a>
+                                                    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -240,10 +240,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
                                                     <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/Creeper/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                                            <a href="<?php echo $baseUrl; ?>views/Games/Creeper/" class="cus-btn filled">
+                                                                <i class="far fa-play"></i> Jugar
+                                                            </a>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,10 +265,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
                                                     <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/DinoRun/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                                        <a href="<?php echo $baseUrl; ?>views/Games/DinoRun/" class="cus-btn filled">
+                                                            <i class="far fa-play"></i> Jugar
+                                                        </a>
+                                                    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -290,10 +290,10 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                                                     <div class="overlay"></div>
                                                     <div class="btn-block">
                                                     <?php if (isset($_SESSION['nombre_usuario'])): ?>
-        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
-            <i class="far fa-play"></i> Jugar
-        </a>
-    <?php endif; ?>
+                                                        <a href="<?php echo $baseUrl; ?>views/Games/GlobyAdventure/" class="cus-btn filled">
+                                                            <i class="far fa-play"></i> Jugar
+                                                        </a>
+                                                    <?php endif; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,7 +319,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     <div class="copyright-text">
                         <div class="row">
                             <div class="col-lg-4 offset-lg-4">
-                                <p class="color-gray mb-lg-0 mb-32">All rights reserved by Globaly ©2023.</p>
+                                <p class="color-gray mb-lg-0 mb-32">Derechos Reservados Globaly ©2023.</p>
                             </div>
                             <div class="col-lg-4 text-lg-end text-center">
                                 <a href="" class="ps-0"><p class="color-gray">Privacy Policy</p></a>
@@ -336,7 +336,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <!-- modal-popup area end  -->
 
         </div>
-            <!-- Jquery Js -->
+            <!-- Jquery Js -->   
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery-3.6.3.min.js"></script>
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/bootstrap.min.js"></script>
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery.countdown.min.js"></script>
