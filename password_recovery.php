@@ -85,6 +85,10 @@ try {
                     .content {
                         text-align: left;
                     }
+                    .content a {
+                        color: white; /* Color blanco para enlaces */
+                        /* El subrayado se mantiene por defecto */
+                    }
                     .footer {
                         text-align: center;
                         padding-top: 20px;
@@ -112,6 +116,7 @@ try {
             
             $mail->send();
             echo 'El mensaje ha sido enviado';
+            header('Location: iniciarsesion.php');
         } else {
             echo "El correo electrónico no está registrado.";
         }
