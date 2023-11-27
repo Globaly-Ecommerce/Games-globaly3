@@ -4048,6 +4048,9 @@ header.st-2 .icon-arrow:hover {
   background: transparent;
   border-radius: 0;
 }
+b{
+  color: #2660b8;
+}
 .page-item:last-child .page-link:hover {
   background: transparent;
   color: #F8F8FF;
