@@ -193,7 +193,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                     <!-- Aquí comienza la sección de mostrar comentarios -->
                     <div class="existing-comments">
-                    <h4>Comentarios de DinoRun</h4>
+                    <h4>Comentarios de GlobyAdventure</h4>
                         <?php foreach ($comentarios as $comentario): ?>
                             <div class="comment">
                                 <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
@@ -236,7 +236,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 </div>
                 </section>
         <!-- Main Content End -->
-
         <!-- footer Area start -->
         <footer class="footer pt-80">
             <div class="container-fluid">
