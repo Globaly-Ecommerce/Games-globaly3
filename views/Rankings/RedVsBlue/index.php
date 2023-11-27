@@ -174,7 +174,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 
                     <!-- Aquí comienza la sección de mostrar comentarios -->
                     <div class="existing-comments">
-                    <h4>Comentarios de GlobyAdventure</h4>
+                    <h4>Comentarios de Red vs Blue</h4>
                         <?php foreach ($comentarios as $comentario): ?>
                             <div class="comment">
                                 <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
