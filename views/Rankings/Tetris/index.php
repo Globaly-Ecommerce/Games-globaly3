@@ -153,36 +153,43 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 </section>
 <!-- Anime detail Area end -->
 
-<!-- Main Content Start -->
-<div class="page-content">
+        <!-- Main Content Start -->
+        <div class="page-content">
 
-    <!-- Comments & Reviews Area start -->
-    <section class="p-80">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-8">
-                    <div class="comments mb-64 mb-xl-0">
-                        <h3 class="color-white mb-8">Comentarios</h3>
-                        <p class="color-gray mb-32 link-text">Favor escribe un comentario <b class="color-primary">Comments Policy</b></p>
+            <!-- Comments & Reviews Area start -->
+            <section class="p-80">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <div class="comments mb-64 mb-xl-0">
+                                    <h3 class="color-white mb-8">Comentarios</h3>
+                                    <p class="color-gray mb-32 link-text">Favor escribe un comentario  <b class="color-primary">Comments Policy </b></p>
+                                    <div class="comment-form mb-32">
+                                    <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
 
-                        <?php if (isset($_SESSION['nombre_usuario'])): ?>
-                            <!-- Formulario de comentarios para usuarios logueados -->
-                            <div class="comment-form mb-32">
-                                <div id="mensaje-exito" style="display: none; color: green;">Enviado con éxito</div>
-                                <form id="comment-form">
-                                    <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
-                                    <input type="hidden" id="usuario_id" name="usuario_id" value="<?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Escribe un comentario">
-                                        <button type="submit">Publicar</button>
-                                    </div>
-                                </form>
+                        <form id="comment-form">
+                            <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
+                            <input type="hidden" id="usuario_id" name="usuario_id" value=<?php echo $_SESSION['nombre_usuario'];?>>
+                            <div class="input-group">
+                                <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Escribe un comentario">
+                                <button type="submit">Publicar</button>
                             </div>
-                        <?php else: ?>
-                            <!-- Mensaje para usuarios no logueados -->
-                            <div style="color: red;">Debes estar logueado para poder escribir un comentario.</div>
-                        <?php endif; ?>
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        </form>
+                    </div>
+
+                    <!-- Aquí comienza la sección de mostrar comentarios -->
+                    <div class="existing-comments">
+                    <h4>Comentarios de Tetris</h4>
+                        <?php foreach ($comentarios as $comentario): ?>
+                            <div class="comment">
+                                <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
+                                <p><?php echo htmlspecialchars($comentario['contenido']); ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <!-- Aquí termina la sección de mostrar comentarios -->
+
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                         $(document).ready(function() {
                             $("#comment-form").submit(function(event) {
@@ -213,16 +220,8 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     </script>
 
                 </div>
-                        <!-- Sección para mostrar comentarios existentes -->
-                        <!-- Asegúrate de tener tu código aquí para mostrar los comentarios existentes -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-<!-- Main Content End -->
+                </section>
+        <!-- Main Content End -->
                     <!-- footer Area start -->
                     <footer class="footer pt-80">
                         <div class="container-fluid">
