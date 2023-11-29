@@ -68,7 +68,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="d-xl-block d-none">
                     <nav class="navbar navbar-expand-xl p-0">
                         <a class="navbar-brand dark-logo d-xl-none" href="index.php"><img alt=""
-                                src="<?php echo $baseUrl; ?>assets/media/videos/logo.png"></a>
+                                src="<?php echo $baseUrl; ?>assets/media/videos/logonegativo.png"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#mynavbar">
                             <i class="fas fa-bars"></i>
@@ -84,7 +84,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                             </div>
                             <div class="col-xl-2 text-center xl-logo">
                                 <a class="navbar-brand m-0 p-0" href="index.php"><img alt=""
-                                        src="<?php echo $baseUrl; ?>assets/media/videos/logo.png"></a>
+                                        src="<?php echo $baseUrl; ?>assets/media/videos/logonegativo.png"></a>
                             </div>
                             <div class="col-xl-5 text-end">
                                 <ul class="right-nav navbar-nav mainmenu align-items-center justify-content-end m-0">

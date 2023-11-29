@@ -123,7 +123,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 <div class="container-fluid">
                     <ul class="social-icon unstyled mb-32">
                         <li> <a href=""><img src="assets/media/icons/instagram.png" alt=""></a></li>
-                        <li> <a href=""><img src="assets/media/icons/facebook.png" alt=""></a></li>
+                        <li> <a href="https://www.facebook.com/globaly1/about"><img src="assets/media/icons/facebook.png" alt=""></a></li>
                         <li> <a href=""><img src="assets/media/icons/twitter.png" alt=""></a></li>
                     </ul>
                     <div class="copyright-text">
