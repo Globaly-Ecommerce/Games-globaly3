@@ -1,8 +1,5 @@
 <?php
 $host = 'localhost';
-// $db   = 'nuevoglobaly_juegosscoresdb';
-// $user = 'nuevoglobaly_admin'; 
-// $pass = 'e?PVnq~Gu$s('; 
 $db   = 'juegosscoresdb';
 $user = 'root'; 
 $pass = ''; 
