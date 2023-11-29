@@ -153,58 +153,44 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 </section>
 <!-- Anime detail Area end -->
 
-<!-- Main Content Start -->
-<div class="page-content">
+        <!-- Main Content Start -->
+        <div class="page-content">
 
-    <!-- Complete Collection Area start -->
-    <section class="p-80">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-8">
-                    <div class="comments mb-64 mb-xl-0">
-                        <h3 class="color-white mb-8">Comentarios</h3>
-                        <p class="color-gray mb-32 link-text">We hope you have a good time browsing the comment section!
-                            <br>Escribe un comentario <b class="color-primary">Comments Policy </b>before commenting.
-                        </p>
+            <!-- Comments & Reviews Area start -->
+            <section class="p-80">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <div class="comments mb-64 mb-xl-0">
+                                    <h3 class="color-white mb-8">Comentarios</h3>
+                                    <p class="color-gray mb-32 link-text">Favor escribe un comentario  <b class="color-primary">Comments Policy </b></p>
+                                    <div class="comment-form mb-32">
+                                    <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
 
-                        <div class="comment-form mb-32">
-                        <div id="mensaje-exito" style="display: none; color: green; ">Enviado con éxito</div>
+                        <form id="comment-form">
+                            <input type="hidden" id="juego_id" name="juego_id" value="ID_DEL_JUEGO">
+                            <input type="hidden" id="usuario_id" name="usuario_id" value=<?php echo $_SESSION['nombre_usuario'];?>>
+                            <div class="input-group">
+                                <input type="text" class="form-control p-0 border-0" name="comentario" id="comentario" required placeholder="Escribe un comentario">
+                                <button type="submit">Publicar</button>
+                            </div>
+                        </form>
+                    </div>
 
-                            <h4>Comentarios</h4>
-                            <form id="comment-form">
-                                <input type="hidden" id="juego_id" name="juego_id" value="<?php echo $juego_id; ?>">
+                    <!-- Aquí comienza la sección de mostrar comentarios -->
+                    <div class="existing-comments">
+                    <h4>Comentarios de Tetris</h4>
+                        <?php foreach ($comentarios as $comentario): ?>
+                            <div class="comment">
+                                <p><strong>Usuario:</strong> <?php echo htmlspecialchars($comentario['nombre_usuario']); ?></p>
+                                <p><?php echo htmlspecialchars($comentario['contenido']); ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <!-- Aquí termina la sección de mostrar comentarios -->
 
-                                <input type="hidden" id="usuario_id" name="usuario_id"
-                                    value="<?php echo htmlspecialchars($_SESSION['nombre_usuario']); ?>">
-                                <div class="input-group">
-                                    <input type="text" class="form-control p-0 border-0" name="comentario"
-                                        id="comentario" required placeholder="Escribe un comentario">
-                                    <button type="submit">Publicar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Aquí comienza la sección de mostrar comentarios -->
-                        <div class="existing-comments">
-                            <h4>Comentarios existentes</h4>
-                            <?php foreach ($comentarios as $comentario): ?>
-                                <div class="comment">
-                                    <p><strong>Usuario:</strong>
-                                        <?php echo htmlspecialchars($comentario['nombre_usuario']); ?>
-                                    </p>
-                                    <p>
-                                        <?php echo htmlspecialchars($comentario['contenido']); ?>
-                                    </p>
-                                    <p><small>Publicado el:
-                                            <?php echo htmlspecialchars($comentario['fecha']); ?>
-                                        </small></p>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <!-- Aquí termina la sección de mostrar comentarios -->
-
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
                         $(document).ready(function() {
                             $("#comment-form").submit(function(event) {
                                 event.preventDefault();
@@ -233,17 +219,16 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         });
                     </script>
 
-
-                    </div>
-                    <!-- Main Content End -->
-
+                </div>
+                </section>
+        <!-- Main Content End -->
                     <!-- footer Area start -->
                     <footer class="footer pt-80">
                         <div class="container-fluid">
                             <ul class="social-icon unstyled mb-32">
                                 <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/instagram.png"
                                             alt=""></a></li>
-                                <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/facebook.png"
+                                <li> <a href="https://www.facebook.com/globaly1/about"><img src="<?php echo $baseUrl; ?>assets/media/icons/facebook.png"
                                             alt=""></a></li>
                                 <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/twitter.png"
                                             alt=""></a></li>

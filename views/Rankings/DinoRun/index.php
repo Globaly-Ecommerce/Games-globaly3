@@ -236,13 +236,12 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                 </div>
                 </section>
         <!-- Main Content End -->
-
         <!-- footer Area start -->
         <footer class="footer pt-80">
             <div class="container-fluid">
                 <ul class="social-icon unstyled mb-32">
                                 <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/instagram.png" alt=""></a></li>
-                                <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/facebook.png" alt=""></a></li>
+                                <li> <a href="https://www.facebook.com/globaly1/about"><img src="<?php echo $baseUrl; ?>assets/media/icons/facebook.png" alt=""></a></li>
                                 <li> <a href=""><img src="<?php echo $baseUrl; ?>assets/media/icons/twitter.png" alt=""></a></li>
                 </ul>
                 <div class="copyright-text">

@@ -44,7 +44,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                     </div>
                     <div class="col-xl-2 d-flex justify-content-center align-items-center xl-logo">
                         <a class="navbar-brand m-0 p-0" href="<?php echo $baseUrl; ?>index.php">
-                            <img alt="" src="<?php echo $baseUrl; ?>assets/media/videos/logo.png" >
+                            <img alt="" src="<?php echo $baseUrl; ?>assets/media/videos/logonegativo.png" >
                         </a>
                     </div>
                     <div class="col-xl-5 text-end">
@@ -85,6 +85,10 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 <header class="st-2">
     <div class="container-fluid">
         <div class="mobile-menu">
+            <!-- Logo for Mobile -->
+            <a class="navbar-brand" href="<?php echo $baseUrl; ?>index.php">
+                <img src="<?php echo $baseUrl; ?>assets/media/videos/responsive.png" alt="Your Logo" class="mobile-logo">
+            </a>
             <div class="hamburger-menu">
                 <div class="bar"></div>
             </div>
@@ -93,9 +97,7 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <ul>
                 <li class="has-children active">Home <span class="icon-arrow"></span>
                     <ul class="children">
-                        
                         <li><a href="<?php echo $baseUrl; ?>index.php">Home</a></li>
-
                     </ul>
                 </li>
                 <li class="has-children">Ranking <span class="icon-arrow"></span>
@@ -112,7 +114,6 @@ $baseUrl = "https://" . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
                         <li><a href="<?php echo $baseUrl; ?>iniciarSesion.php" class="active">Log in</a></li>
                     </ul>
                 </li>
-                
             </ul>
         </nav>
     </div>

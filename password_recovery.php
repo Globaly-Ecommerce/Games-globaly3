@@ -3,12 +3,12 @@ require_once './vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Cambia estas variables por tus credenciales de producción reales
-$host = 'your_production_host';
-$db   = 'your_production_db';
-$user = 'your_production_user';
-$pass = 'your_production_password';
-$charset = 'utf8';
+// Credenciales de producción reales
+$host = 'production_host';
+$db   = 'production_db';
+$user = 'production_user';
+$pass = 'production_password';
+$charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -27,9 +27,8 @@ try {
         $user = $stmt->fetch();
 
         if ($user) {
-            // Usar bin2hex(random_bytes(32)) es más seguro para generar tokens
             $token = bin2hex(random_bytes(32));
-            $expira = date("Y-m-d H:i:s", strtotime("+1 hour")); // El token expira en 1 hora
+            $expira = date("Y-m-d H:i:s", strtotime("+1 hour")); 
 
             $stmt = $pdo->prepare("UPDATE usuarios SET reset_token = :reset_token, token_expira = :token_expira WHERE email = :email");
             $stmt->execute([
@@ -39,27 +38,85 @@ try {
             ]);
 
             $mail = new PHPMailer(true);
-            // Configuración de PHPMailer para usar tu servidor SMTP de producción
             $mail->isSMTP();
-            $mail->Host = 'your_production_smtp_server';
+            $mail->Host = 'smtp.productionserver.com'; // Servidor SMTP de producción
             $mail->SMTPAuth = true;
-            $mail->Username = 'your_production_smtp_username';
-            $mail->Password = 'your_production_smtp_password';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // o PHPMailer::ENCRYPTION_SMTPS si tu servidor lo requiere
-            $mail->Port = 587; // o el puerto que tu servidor SMTP de producción requiera
+            $mail->Username = 'smtp_production_username';
+            $mail->Password = 'smtp_production_password';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
             $mail->CharSet = 'UTF-8';
-            // Remitente y destinatario
-            $mail->setFrom('support@yourdomain.com', 'Nombre de tu Aplicación');
+            $mail->setFrom('noreply@globaly.com', 'Globaly Gaming Score');
             $mail->addAddress($email);
-            // Contenido del email
             $mail->isHTML(true);
             $mail->Subject = 'Restablecimiento de contraseña';
-            // Asegúrate de que la URL apunte al dominio de producción y use HTTPS
-            $urlDeReset = "https://yourdomain.com/reset_password.php?token=" . $token . "&email=" . urlencode($email);
-            $mail->Body = "<p>Por favor, haz clic en el siguiente enlace para restablecer tu contraseña:</p><p><a href='{$urlDeReset}'>Restablecer Contraseña</a></p>";
+            
+            // URL absoluta para entorno de producción
+            $urlDeReset = "https://www.yourdomain.com/reset_password.php?token=" . $token . "&email=" . urlencode($email);
 
+            // Asegúrate de que esta URL es accesible públicamente y apunta a la imagen correcta
+            $imageUrl = 'https://www.yourdomain.com/assets/media/videos/modelosa.png';
+
+            $mail->Body = "
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Password Reset</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        margin: 0;
+                        padding: 0;
+                        color:white;
+                    }
+                    .container {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        padding: 20px;
+                        background-color: #434343;
+                        border: 1px solid #ddd;
+                        border-radius:5px;
+                    }
+                    .header {
+                        text-align: center;
+                        padding-bottom: 20px;
+                    }
+                    .content {
+                        text-align: left;
+                    }
+                    .content a {
+                        color: white; /* Color blanco para enlaces */
+                        /* El subrayado se mantiene por defecto */
+                    }
+                    .footer {
+                        text-align: center;
+                        padding-top: 20px;
+                        font-size: 0.8em;
+                        color: #fffffff;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class='container'>
+                    <div class='header'>
+                        <img src='{$imageUrl}' alt='Recovery Image' width='200'>
+                    </div>
+                    <div class='content'>
+                        <h1>Restauración de Contraseña</h1>
+                        <p>Por favor, haz clic en el siguiente enlace para restablecer tu contraseña:</p>
+                        <p><a href='{$urlDeReset}'>Restablecer Contraseña</a></p>
+                    </div>
+                    <div class='footer'>
+                        &copy; 2023 Globaly Gaming Score. All rights reserved.
+                    </div>
+                </div>
+            </body>
+            </html>";
+            
             $mail->send();
             echo 'El mensaje ha sido enviado';
+            header('Location: iniciarsesion.php');
         } else {
             echo "El correo electrónico no está registrado.";
         }
@@ -70,4 +127,3 @@ try {
     echo 'El mensaje no se pudo enviar. Error de PHPMailer: ' . $mail->ErrorInfo;
 }
 ?>
-
