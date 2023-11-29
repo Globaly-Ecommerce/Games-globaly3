@@ -20,6 +20,9 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<?php
+$version = time();
+?>
 
     <head>
         <meta charset="UTF-8">
@@ -37,7 +40,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
         <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/vendor/slick.css">
         <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/vendor/font-awesome.css">
         <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/vendor/slick-theme.css">
-        <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/app.css">
+        <link rel="stylesheet" href="<?php echo $baseUrl; ?>assets/css/app.css?v=<?= $version; ?>">
     </head>
 
     <body>
@@ -344,7 +347,7 @@ $baseUrl = $protocol . $_SERVER['HTTP_HOST'] . "/applications/juegos/";
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery-appear.js"></script>
             <script src="<?php echo $baseUrl; ?>assets/js/vendor/jquery-validator.js"></script>
             <!-- Site Scripts -->
-            <script src="<?php echo $baseUrl; ?>assets/js/app.js"></script>
+            <script src="<?php echo $baseUrl; ?>assets/js/app.js?v=<?= $version; ?>"></script>
     </body>
 
 </html>
