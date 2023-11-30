@@ -124,7 +124,41 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
         var grid = [];
         var scoreboard = new Scoreboard();
        
-      
+      // Prevenir el desplazamiento de la pantalla en dispositivos móviles
+document.body.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
+// Variables para controlar los toques
+let lastTouchEnd = 0;
+let touchStartX = 0;
+
+// Evento de toque comenzado
+canvas.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+// Evento de toque terminado
+canvas.addEventListener('touchend', function(e) {
+    var touchEndX = e.changedTouches[0].screenX;
+    var touchDiff = touchEndX - touchStartX;
+
+    // Doble toque para rotar
+    var now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        rotate(fallingShape);
+    } else {
+        // Mover a la izquierda o derecha
+        if (touchDiff > 50) { // ajusta este valor según la sensibilidad deseada
+            if (canMove(fallingShape, right)) move(right);
+        } else if (touchDiff < -50) {
+            if (canMove(fallingShape, left)) move(left);
+        }
+    }
+    lastTouchEnd = now;
+    draw();
+}, false);
+
 
         addEventListener('keydown', function (event) {
             if (!keyDown) {

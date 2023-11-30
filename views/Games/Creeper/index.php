@@ -216,6 +216,8 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
     // ... Resto de tu script de juego ...
 
     let highScore = 0;
+    let lastTapTime = 0;
+
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     const startButton = document.getElementById("startButton");
@@ -830,11 +832,26 @@ $highScore = $userScore ? $userScore['highscore'] : '0';
     setInterval(spawnCreeper, 1500);
 
     window.onload = () => {
-      resetGame();
-      document.getElementById("gameOverScreen").style.display = "block";
-    };
+  adjustCanvasSize();
+  resetGame();
+  document.getElementById("gameOverScreen").style.display = "block";
+};
 
+window.addEventListener('resize', adjustCanvasSize);
 
+function adjustCanvasSize() {
+  const maxWidth = window.innerWidth;
+  const maxHeight = window.innerHeight;
+  const aspectRatio = 4 / 3; // Adjust based on your game's aspect ratio
+
+  if (maxWidth / maxHeight < aspectRatio) {
+    canvas.width = maxWidth;
+    canvas.height = maxWidth / aspectRatio;
+  } else {
+    canvas.height = maxHeight;
+    canvas.width = maxHeight * aspectRatio;
+  }
+}
 
 let shootingInterval;
 function preventDefaultTouchActions(event) {

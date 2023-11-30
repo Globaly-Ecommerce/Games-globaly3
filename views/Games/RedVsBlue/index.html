@@ -600,8 +600,6 @@ let scoreCount = 0;
 
 
 const scoreContainer = document.createElement('div');
-scoreContainer.style.userSelect = 'none'; // Previene la selección del texto
-scoreContainer.style.touchAction = 'none'; // Desactiva las acciones táctiles predeterminadas
 scoreContainer.style.position = 'fixed';
 scoreContainer.style.top = '20px';
 scoreContainer.style.right = '20px';
@@ -622,8 +620,6 @@ document.body.appendChild(scoreContainer);
 
 const scoreElement = document.createElement('span');
 scoreElement.textContent = `Score: ${scoreCount}`;
-scoreElement.style.userSelect = 'none'; // Previene la selección del texto
-scoreElement.style.touchAction = 'none'; // Desactiva las acciones táctiles predeterminadas
 scoreContainer.appendChild(scoreElement);
 scoreContainer.addEventListener('mouseenter', () => {
   scoreContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
